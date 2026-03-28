@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rooted Pair — The Understory Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream:#F4F1EA; --off-white:#FAF9F5; --charcoal:#1E1E1E; --dark:#2A2A2A;
+    --olive:#4A5C3A; --olive-mid:#6B7C58; --olive-light:#8E9E7A;
+    --soil:#3B2E1E; --bark:#5C4A32; --slate-light:#9EB0BC;
+    --border:rgba(30,30,30,0.12); --border-heavy:rgba(30,30,30,0.22);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family:'Rajdhani',sans-serif; font-weight:400; background:var(--off-white); color:var(--charcoal); font-size:15px; line-height:1.7; letter-spacing:0.01em; }
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0.75rem 3rem; background:rgba(250,249,245,0.95); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
+  .nav-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .nav-mark { height:64px; width:auto; flex-shrink:0; }
+  .nav-links { display:flex; gap:2.5rem; align-items:center; }
+  .nav-links a { text-decoration:none; font-size:0.75rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--dark); transition:color 0.2s; }
+  .nav-links a:hover { color:var(--olive); }
+  .nav-partners { display:flex; align-items:center; gap:1rem; padding-left:2rem; border-left:1px solid var(--border); }
+  .partner-tag { font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--bark); font-weight:600; }
+  .page { padding-top:90px; }
+  .breadcrumb { padding:1.25rem 3rem; display:flex; align-items:center; gap:0.75rem; border-bottom:1px solid var(--border); background:var(--cream); }
+  .breadcrumb a { font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--olive-mid); font-weight:600; text-decoration:none; }
+  .breadcrumb a:hover { color:var(--olive); }
+  .breadcrumb-sep { font-size:0.65rem; color:var(--border-heavy); }
+  .breadcrumb-current { font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--bark); font-weight:600; }
+  .project-hero { display:grid; grid-template-columns:1fr 1.4fr; min-height:70vh; background:var(--cream); }
+  .project-info { padding:4rem 3rem; display:flex; flex-direction:column; justify-content:center; border-right:1px solid var(--border); }
+  .project-tag { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--olive); font-weight:700; margin-bottom:1rem; display:flex; align-items:center; gap:0.75rem; }
+  .project-tag::before { content:''; width:24px; height:1px; background:var(--olive); }
+  .project-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,4vw,4rem); font-weight:300; line-height:1.05; color:var(--charcoal); margin-bottom:2.5rem; }
+  .project-title em { font-style:italic; color:var(--olive); }
+  .stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:2.5rem; }
+  .stat-cell { background:var(--off-white); padding:1rem 1.25rem; }
+  .stat-label { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--olive-mid); font-weight:700; margin-bottom:0.35rem; }
+  .stat-value { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:400; color:var(--charcoal); line-height:1.1; }
+  .stat-value span { font-family:'Rajdhani',sans-serif; font-size:0.8rem; font-weight:600; color:var(--bark); letter-spacing:0.05em; display:block; margin-top:0.2rem; }
+  .project-desc { font-size:1rem; color:var(--soil); line-height:1.85; font-weight:400; margin-bottom:2rem; }
+  .btn-back { display:inline-flex; align-items:center; gap:0.5rem; padding:0.65rem 1.5rem; border:1px solid var(--border-heavy); color:var(--dark); text-decoration:none; font-size:0.65rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; transition:border-color 0.2s,color 0.2s; align-self:flex-start; }
+  .btn-back:hover { border-color:var(--olive); color:var(--olive); }
+  .project-image-wrap { position:relative; overflow:hidden; background:var(--cream); display:flex; align-items:center; justify-content:center; min-height:500px; }
+  .image-placeholder { width:100%; height:100%; min-height:500px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; background:var(--cream); }
+  .image-placeholder-label { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--bark); font-weight:600; }
+  .floorplan-section { padding:5rem 3rem; background:var(--off-white); border-top:1px solid var(--border); }
+  .floorplan-header { display:flex; align-items:center; gap:0.75rem; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--olive); font-weight:700; margin-bottom:2.5rem; }
+  .floorplan-header::after { content:''; flex:0 0 24px; height:1px; background:var(--olive); }
+  .floorplan-card { border:1px solid var(--border); background:var(--cream); overflow:hidden; }
+  .floorplan-card-header { padding:0.75rem 1.25rem; border-bottom:1px solid var(--border); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--bark); font-weight:700; background:var(--off-white); }
+  .floorplan-placeholder { width:100%; aspect-ratio:16/9; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.75rem; background:var(--cream); }
+  .floorplan-placeholder-label { font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--bark); font-weight:600; opacity:0.6; }
+  footer { background:var(--charcoal); color:var(--cream); padding:3rem; }
+  .footer-top { display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:2rem; border-bottom:1px solid rgba(255,255,255,0.1); flex-wrap:wrap; gap:2rem; }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:300; letter-spacing:0.06em; color:var(--cream); }
+  .footer-tagline { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--slate-light); font-weight:500; margin-top:0.5rem; }
+  .footer-partners { display:flex; gap:2rem; align-items:center; }
+  .footer-partner { font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; font-weight:600; color:rgba(255,255,255,0.5); }
+  .footer-bottom { padding-top:1.5rem; }
+  .footer-note { font-size:0.65rem; color:rgba(255,255,255,0.3); letter-spacing:0.06em; }
+  @media(max-width:900px) { nav{padding:1rem 1.5rem;} .nav-partners{display:none;} .breadcrumb{padding:1rem 1.5rem;} .project-hero{grid-template-columns:1fr;} .project-info{padding:2.5rem 1.5rem; border-right:none; border-bottom:1px solid var(--border);} .floorplan-section{padding:3rem 1.5rem;} footer{padding:2rem 1.5rem;} }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="index.html"><img class="nav-mark" src="logotitle.png" alt="The Understory Collection"/></a>
+  <div class="nav-links">
+    <a href="index.html#collection">Collection</a>
+    <a href="index.html#about">Philosophy</a>
+    <div class="nav-partners">
+      <span class="partner-tag">Saltus</span>
+      <span class="partner-tag" style="color:var(--border-heavy)">·</span>
+      <span class="partner-tag">Knighton A+P</span>
+    </div>
+  </div>
+</nav>
+<div class="page">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a><span class="breadcrumb-sep">›</span>
+    <a href="index.html#collection">Collection</a><span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">The Rooted Pair</span>
+  </div>
+  <div class="project-hero">
+    <div class="project-info">
+      <div class="project-tag">Duplex · Infill</div>
+      <h1 class="project-title">The <em>Rooted</em> Pair</h1>
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="stat-label">Units</div><div class="stat-value">2<span>Side by side</span></div></div>
+        <div class="stat-cell"><div class="stat-label">Unit size</div><div class="stat-value">1,800<span>sq ft each</span></div></div>
+        <div class="stat-cell"><div class="stat-label">Total area</div><div class="stat-value">3,600<span>sq ft</span></div></div>
+        <div class="stat-cell"><div class="stat-label">Starting price</div><div class="stat-value">$680k<span>per unit</span></div></div>
+        <div class="stat-cell"><div class="stat-label">Storeys</div><div class="stat-value">2<span>Above grade</span></div></div>
+        <div class="stat-cell"><div class="stat-label">Typology</div><div class="stat-value" style="font-size:1.1rem">Duplex<span>Infill</span></div></div>
+      </div>
+      <p class="project-desc">A side-by-side duplex that mirrors the massing of its single-family neighbours while quietly doubling the density of the block. Each unit reads as a complete home from the street — its own entrance, its own garden, its own identity — while sharing structure and land in a way that makes both units substantially more affordable than an equivalent detached house.</p>
+      <a href="index.html#collection" class="btn-back">← Back to Collection</a>
+    </div>
+    <div class="project-image-wrap">
+      <div class="image-placeholder">
+        <svg width="64" height="56" viewBox="0 0 64 56" fill="none" opacity="0.2"><polygon points="32,4 60,28 4,28" fill="#4A5C3A"/><rect x="8" y="28" width="22" height="24" fill="#6B7C58"/><rect x="34" y="28" width="22" height="24" fill="#6B7C58"/></svg>
+        <span class="image-placeholder-label">Main project image</span>
+      </div>
+    </div>
+  </div>
+  <div class="floorplan-section">
+    <div class="floorplan-header">Floor Plan</div>
+    <div class="floorplan-card">
+      <div class="floorplan-card-header">Floor Plan — All Levels</div>
+      <div class="floorplan-placeholder">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" opacity="0.2"><rect x="2" y="2" width="44" height="44" stroke="#4A5C3A" stroke-width="2" fill="none"/><rect x="8" y="8" width="14" height="16" stroke="#4A5C3A" stroke-width="1.5" fill="none"/><rect x="26" y="8" width="14" height="16" stroke="#4A5C3A" stroke-width="1.5" fill="none"/><rect x="8" y="28" width="32" height="12" stroke="#4A5C3A" stroke-width="1.5" fill="none"/></svg>
+        <span class="floorplan-placeholder-label">Upload floor plan image</span>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-logo">The Understory Collection</div><div class="footer-tagline">Missing middle housing typologies</div></div>
+    <div class="footer-partners">
+      <span class="footer-partner">Saltus</span>
+      <span style="color:rgba(255,255,255,0.15);font-size:1rem;">×</span>
+      <span class="footer-partner">Knighton Architecture + Planning</span>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="footer-note">The Understory Collection — an ongoing study in missing middle housing</div></div>
+</footer>
+</body>
+</html>
