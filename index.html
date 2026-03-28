@@ -20,6 +20,8 @@
     --tan-light:   #DFC99A;
     --slate:       #6B7E8A;
     --slate-light: #9EB0BC;
+    --soil:        #3B2E1E;
+    --bark:        #5C4A32;
     --border:      rgba(30,30,30,0.12);
     --border-heavy:rgba(30,30,30,0.22);
   }
@@ -36,46 +38,35 @@
     letter-spacing: 0.01em;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 3rem;
+    padding: 0.75rem 3rem;
     background: rgba(250,249,245,0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
   }
-  .nav-brand {
-    display: flex; align-items: center; gap: 12px;
-    text-decoration: none;
-  }
-  /* SVG inline logo mark */
-  .nav-mark { height: 44px; width: auto; flex-shrink: 0; }
-  .nav-collection {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 0.65rem; font-weight: 600;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--olive-mid);
-  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-mark { height: 64px; width: auto; flex-shrink: 0; }
   .nav-links { display: flex; gap: 2.5rem; align-items: center; }
   .nav-links a {
     text-decoration: none;
-    font-size: 0.7rem; font-weight: 500;
+    font-size: 0.75rem; font-weight: 600;
     letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--dark); transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--olive); }
   .nav-partners {
     display: flex; align-items: center; gap: 1rem;
-    padding-left: 2rem;
-    border-left: 1px solid var(--border);
+    padding-left: 2rem; border-left: 1px solid var(--border);
   }
   .partner-tag {
-    font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--slate); font-weight: 500;
+    font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--bark); font-weight: 600;
   }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: grid;
@@ -85,7 +76,6 @@
     background: var(--cream);
     position: relative; overflow: hidden;
   }
-  /* Subtle geometric background */
   .hero::before {
     content: '';
     position: absolute; inset: 0;
@@ -94,14 +84,13 @@
       repeating-linear-gradient(45deg,  transparent 0px, transparent 48px, rgba(74,92,58,0.04) 48px, rgba(74,92,58,0.04) 49px);
   }
   .hero-left { position: relative; }
+  .hero-content { position: relative; max-width: 720px; padding-top: 2rem; }
   .hero-eyebrow {
     display: flex; align-items: center; gap: 1rem;
     font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--olive); margin-bottom: 2rem; font-weight: 600;
   }
-  .hero-eyebrow::before {
-    content: ''; width: 32px; height: 1px; background: var(--olive-mid);
-  }
+  .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--olive); }
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3.5rem, 6.5vw, 6.5rem);
@@ -112,95 +101,80 @@
   .hero-desc {
     max-width: 500px;
     color: var(--soil); font-size: 1.05rem;
-    line-height: 1.8; margin-bottom: 3rem;
-    font-weight: 400;
+    line-height: 1.8; margin-bottom: 3rem; font-weight: 400;
   }
   .hero-actions { display: flex; gap: 1.5rem; align-items: center; }
   .btn-primary {
-    display: inline-block;
-    padding: 0.7rem 2rem;
-    background: var(--olive);
-    color: #fff;
+    display: inline-block; padding: 0.7rem 2rem;
+    background: var(--olive); color: #fff;
     text-decoration: none;
-    font-size: 0.65rem; font-weight: 600;
+    font-size: 0.7rem; font-weight: 600;
     letter-spacing: 0.18em; text-transform: uppercase;
     transition: background 0.2s;
   }
   .btn-primary:hover { background: var(--olive-mid); }
   .btn-ghost {
-    display: inline-block;
-    padding: 0.7rem 2rem;
-    border: 1px solid var(--border-heavy);
-    color: var(--dark);
+    display: inline-block; padding: 0.7rem 2rem;
+    border: 1px solid var(--border-heavy); color: var(--dark);
     text-decoration: none;
-    font-size: 0.65rem; font-weight: 600;
+    font-size: 0.7rem; font-weight: 600;
     letter-spacing: 0.18em; text-transform: uppercase;
     transition: border-color 0.2s, color 0.2s;
   }
   .btn-ghost:hover { border-color: var(--olive); color: var(--olive); }
 
-  /* Hero right panel */
+  /* HERO RIGHT */
   .hero-right {
     position: relative;
     display: flex; flex-direction: column;
     align-items: center; justify-content: flex-end;
-    padding-bottom: 2rem;
+    padding-bottom: 2rem; gap: 2rem;
   }
-  /* Large decorative logo mark */
-  .hero-mark { width: 260px; height: 260px; opacity: 0.18; }
-
+  .hero-logo { width: 260px; height: auto; opacity: 0.65; display: block; }
   .hero-partners {
-    position: relative;
-    width: 100%;
-    padding: 1.5rem;
+    width: 100%; padding: 1.5rem;
     border: 1px solid var(--border);
     background: rgba(250,249,245,0.7);
     backdrop-filter: blur(4px);
   }
   .hero-partners-label {
-    font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--slate); margin-bottom: 1rem; font-weight: 500;
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--bark); margin-bottom: 1rem; font-weight: 600;
   }
   .partners-row { display: flex; gap: 1.5rem; align-items: center; }
   .partner-name {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 0.75rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--charcoal);
+    font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal);
   }
   .partner-sub {
-    font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--slate-light); font-weight: 400;
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--bark); font-weight: 500;
   }
   .partner-divider { width: 1px; height: 28px; background: var(--border-heavy); }
 
-  /* ── BAND ── */
+  /* BAND */
   .band {
     background: var(--charcoal); color: var(--cream);
     padding: 1.25rem 3rem;
-    display: flex; align-items: center; gap: 3rem;
-    overflow: hidden;
+    display: flex; align-items: center; gap: 3rem; overflow: hidden;
   }
-  .band-item {
-    display: flex; align-items: center; gap: 0.75rem;
-    flex-shrink: 0;
-  }
+  .band-item { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
   .band-dot { width: 4px; height: 4px; background: var(--olive-light); }
   .band-text {
-    font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-    font-weight: 500; color: var(--slate-light);
-    white-space: nowrap;
+    font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 500; color: var(--slate-light); white-space: nowrap;
   }
   .band-text strong { color: var(--tan-light); }
 
-  /* ── SECTION BASE ── */
+  /* SECTION BASE */
   section { padding: 6rem 3rem; }
   .section-label {
     display: flex; align-items: center; gap: 0.75rem;
     font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--olive); margin-bottom: 1rem; font-weight: 700;
   }
-  .section-label::after { content: ''; flex: 0 0 24px; height: 1px; background: var(--olive-mid); }
+  .section-label::after { content: ''; flex: 0 0 24px; height: 1px; background: var(--olive); }
   .section-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2rem, 3.5vw, 3rem);
@@ -208,50 +182,47 @@
     color: var(--charcoal); margin-bottom: 1.5rem;
   }
 
-  /* ── COLLECTION ── */
+  /* COLLECTION */
   #collection { background: var(--off-white); }
   .collection-header {
     display: flex; justify-content: space-between; align-items: flex-end;
     margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem;
   }
   .collection-header-left { max-width: 480px; }
-  .collection-header p { color: var(--dark); font-size: 0.95rem; font-weight: 300; }
+  .collection-header p { color: var(--soil); font-size: 1rem; font-weight: 400; }
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5px;
     background: var(--border);
     border: 1px solid var(--border);
   }
   .card {
-    background: var(--off-white);
-    cursor: pointer;
-    transition: background 0.25s;
-    overflow: hidden;
+    background: var(--off-white); cursor: pointer;
+    transition: background 0.25s; overflow: hidden;
     display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
   }
   .card:hover { background: var(--cream); }
   .card-img {
     width: 100%; aspect-ratio: 4/3;
-    background: var(--cream);
-    position: relative; overflow: hidden;
+    background: var(--cream); position: relative; overflow: hidden;
   }
   .card-img-placeholder {
     width: 100%; height: 100%;
     display: flex; align-items: center; justify-content: center;
     flex-direction: column; gap: 8px;
   }
-  /* Placeholder geometric shapes */
   .placeholder-icon { opacity: 0.25; }
   .card-img-label {
-    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--slate); font-weight: 500;
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--bark); font-weight: 600;
   }
   .card-body { padding: 1.5rem; flex: 1; }
   .card-tag {
-    font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--olive-mid); margin-bottom: 0.6rem; font-weight: 600;
+    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--olive); margin-bottom: 0.6rem; font-weight: 700;
   }
   .card-title {
     font-family: 'Cormorant Garamond', serif;
@@ -259,8 +230,7 @@
     color: var(--charcoal); margin-bottom: 0.75rem; line-height: 1.15;
   }
   .card-desc {
-    font-size: 0.88rem; color: var(--dark);
-    line-height: 1.75; font-weight: 300;
+    font-size: 0.92rem; color: var(--soil); line-height: 1.75; font-weight: 400;
   }
   .card-footer {
     padding: 1rem 1.5rem;
@@ -268,8 +238,8 @@
     display: flex; justify-content: space-between; align-items: center;
   }
   .card-meta {
-    font-size: 0.65rem; letter-spacing: 0.1em;
-    color: var(--slate); font-weight: 500; text-transform: uppercase;
+    font-size: 0.7rem; letter-spacing: 0.08em;
+    color: var(--bark); font-weight: 600; text-transform: uppercase;
   }
   .card-arrow {
     width: 28px; height: 28px;
@@ -280,43 +250,38 @@
   }
   .card:hover .card-arrow { background: var(--olive); color: #fff; }
 
-  /* ── TYPOLOGY KEY ── */
+  /* TYPOLOGY KEY */
   .typology-key {
     margin-top: 3rem;
     display: flex; flex-wrap: wrap; gap: 1rem;
-    padding: 1.5rem;
-    border: 1px solid var(--border);
+    padding: 1.5rem; border: 1px solid var(--border);
     background: var(--cream);
   }
   .key-label {
-    font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--slate); font-weight: 600; width: 100%; margin-bottom: 0.25rem;
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--bark); font-weight: 700; width: 100%; margin-bottom: 0.25rem;
   }
   .key-item {
     display: flex; align-items: center; gap: 6px;
-    font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--dark); font-weight: 500;
+    font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--soil); font-weight: 500;
   }
-  .key-dot {
-    width: 8px; height: 8px;
-    background: var(--olive-mid);
-  }
+  .key-dot { width: 8px; height: 8px; background: var(--olive-mid); }
   .key-dot.slate { background: var(--slate); }
   .key-dot.tan { background: var(--tan); }
 
-  /* ── DIVIDER ── */
+  /* DIVIDER */
   .divider { height: 1px; background: var(--border); margin: 0 3rem; }
 
-  /* ── ABOUT ── */
+  /* ABOUT */
   #about { background: var(--cream); }
   .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 380px;
+    display: grid; grid-template-columns: 1fr 380px;
     gap: 5rem; align-items: start;
   }
   .about-left p {
-    color: var(--dark); font-size: 0.95rem;
-    line-height: 1.9; margin-bottom: 1.5rem; font-weight: 300;
+    color: var(--soil); font-size: 1rem;
+    line-height: 1.9; margin-bottom: 1.5rem; font-weight: 400;
   }
   .about-quote {
     margin: 2.5rem 0;
@@ -327,25 +292,16 @@
   .about-quote p {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.25rem; font-style: italic;
-    color: var(--olive); line-height: 1.6; margin: 0 !important;
-    font-weight: 500;
+    color: var(--olive); line-height: 1.6; margin: 0 !important; font-weight: 500;
   }
   .about-right { padding-top: 0.5rem; }
-
-  /* Partners panel */
-  .partners-panel {
-    border: 1px solid var(--border-heavy);
-    overflow: hidden; margin-bottom: 2rem;
-  }
+  .partners-panel { border: 1px solid var(--border-heavy); overflow: hidden; margin-bottom: 2rem; }
   .partners-panel-header {
     background: var(--charcoal); padding: 0.75rem 1.25rem;
-    font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--slate-light); font-weight: 600;
   }
-  .partner-entry {
-    padding: 1.25rem;
-    border-bottom: 1px solid var(--border);
-  }
+  .partner-entry { padding: 1.25rem; border-bottom: 1px solid var(--border); }
   .partner-entry:last-child { border-bottom: none; }
   .partner-entry-name {
     font-family: 'Rajdhani', sans-serif;
@@ -358,34 +314,24 @@
     color: var(--olive); font-weight: 700; margin-bottom: 0.5rem;
   }
   .partner-entry-desc {
-    font-size: 0.82rem; color: var(--dark);
-    line-height: 1.6; font-weight: 300;
+    font-size: 0.88rem; color: var(--soil); line-height: 1.6; font-weight: 400;
   }
-
   .about-stat-row {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-    background: var(--border); border: 1px solid var(--border);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--border); border: 1px solid var(--border);
   }
-  .about-stat {
-    background: var(--off-white);
-    padding: 1.25rem;
-  }
+  .about-stat { background: var(--off-white); padding: 1.25rem; }
   .about-stat-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 300;
-    color: var(--olive); line-height: 1;
+    font-size: 2.5rem; font-weight: 300; color: var(--olive); line-height: 1;
   }
   .about-stat-label {
-    font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--slate); margin-top: 0.4rem; font-weight: 500;
-    line-height: 1.4;
+    font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--bark); margin-top: 0.4rem; font-weight: 600; line-height: 1.4;
   }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--charcoal); color: var(--cream);
-    padding: 3rem;
-  }
+  /* FOOTER */
+  footer { background: var(--charcoal); color: var(--cream); padding: 3rem; }
   .footer-top {
     display: flex; justify-content: space-between; align-items: flex-start;
     padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -394,16 +340,15 @@
   .footer-logo-group { display: flex; flex-direction: column; gap: 0.5rem; }
   .footer-logo {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem; font-weight: 300; letter-spacing: 0.06em;
-    color: var(--cream);
+    font-size: 1.4rem; font-weight: 300; letter-spacing: 0.06em; color: var(--cream);
   }
   .footer-tagline {
-    font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--slate-light); font-weight: 500;
   }
   .footer-partners { display: flex; gap: 2rem; align-items: center; }
   .footer-partner {
-    font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase;
+    font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
     font-weight: 600; color: rgba(255,255,255,0.5);
   }
   .footer-bottom {
@@ -411,12 +356,12 @@
     display: flex; justify-content: space-between; align-items: center;
     flex-wrap: wrap; gap: 1rem;
   }
-  .footer-note {
-    font-size: 0.65rem; color: rgba(255,255,255,0.3);
-    letter-spacing: 0.06em;
-  }
+  .footer-note { font-size: 0.65rem; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; }
 
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-partners { display: none; }
@@ -428,6 +373,7 @@
     .band { padding: 1rem 1.5rem; gap: 2rem; }
     footer { padding: 2rem 1.5rem; }
     .collection-header { flex-direction: column; }
+    .grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -452,21 +398,18 @@
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Missing Middle Housing</div>
-    <h1 class="hero-title">
-      The<br><em>Understory</em><br>Collection
-    </h1>
-    <p class="hero-desc">
-      Architecture that roots itself quietly in the neighbourhood fabric. Denser than a house, more human than a tower — the vital middle ground that healthy cities are built upon.
-    </p>
-    <div class="hero-actions">
-      <a href="#collection" class="btn-primary">View the Collection</a>
-      <a href="#about" class="btn-ghost">Our Philosophy</a>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Missing Middle Housing</div>
+      <h1 class="hero-title">The<br><em>Understory</em><br>Collection</h1>
+      <p class="hero-desc">Architecture that roots itself quietly in the neighbourhood fabric. Denser than a house, more human than a tower — the vital middle ground that healthy cities are built upon.</p>
+      <div class="hero-actions">
+        <a href="#collection" class="btn-primary">View the Collection</a>
+        <a href="#about" class="btn-ghost">Our Philosophy</a>
+      </div>
     </div>
   </div>
   <div class="hero-right">
-    <!-- Logo image replacing decorative mark -->
-    <img src="logo.png" alt="The Understory Collection" style="width: 180px; height: auto; opacity: 0.5; display: block; margin: 0 auto 2rem;"/>
+    <img src="logo.png" alt="The Understory Collection" class="hero-logo"/>
     <div class="hero-partners">
       <div class="hero-partners-label">Created &amp; developed in partnership with</div>
       <div class="partners-row">
@@ -484,7 +427,7 @@
   </div>
 </section>
 
-<!-- INFO BAND -->
+<!-- BAND -->
 <div class="band">
   <div class="band-item"><div class="band-dot"></div><span class="band-text"><strong>Missing Middle</strong> — 2 to 8 units</span></div>
   <div class="band-item"><div class="band-dot"></div><span class="band-text"><strong>Typologies</strong> — Duplex · Fourplex · Courtyard · Row · ADU · Stacked Flat</span></div>
@@ -502,113 +445,189 @@
   </div>
 
   <div class="grid">
-    <div class="card">
-      <div class="card-img">
-        <div class="card-img-placeholder">
-          <svg class="placeholder-icon" width="48" height="40" viewBox="0 0 48 40"><polygon points="24,2 46,22 2,22" fill="#4A5C3A"/><rect x="8" y="22" width="14" height="16" fill="#6B7C58"/><rect x="26" y="22" width="14" height="16" fill="#6B7C58"/></svg>
-          <span class="card-img-label">Add project image</span>
-        </div>
-      </div>
+
+    <!-- 1 -->
+    <a class="card" href="rooted-pair.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="48" height="40" viewBox="0 0 48 40"><polygon points="24,2 46,22 2,22" fill="#4A5C3A"/><rect x="8" y="22" width="14" height="16" fill="#6B7C58"/><rect x="26" y="22" width="14" height="16" fill="#6B7C58"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
       <div class="card-body">
         <p class="card-tag">Duplex · Infill</p>
         <h3 class="card-title">The Rooted Pair</h3>
         <p class="card-desc">A side-by-side duplex that mirrors the massing of its single-family neighbours while quietly doubling the density of the block.</p>
       </div>
-      <div class="card-footer">
-        <span class="card-meta">2 units · 1,800 sf each</span>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>
+      <div class="card-footer"><span class="card-meta">2 units · 1,800 sf each</span><div class="card-arrow">→</div></div>
+    </a>
 
-    <div class="card">
-      <div class="card-img">
-        <div class="card-img-placeholder">
-          <svg class="placeholder-icon" width="48" height="40" viewBox="0 0 48 40"><rect x="2" y="8" width="20" height="30" fill="#4A5C3A"/><rect x="26" y="8" width="20" height="30" fill="#4A5C3A"/><rect x="16" y="2" width="16" height="10" fill="#8E9E7A"/></svg>
-          <span class="card-img-label">Add project image</span>
-        </div>
-      </div>
+    <!-- 2 -->
+    <a class="card" href="canopy-stack.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="48" height="40" viewBox="0 0 48 40"><rect x="2" y="8" width="20" height="30" fill="#4A5C3A"/><rect x="26" y="8" width="20" height="30" fill="#4A5C3A"/><rect x="16" y="2" width="16" height="10" fill="#8E9E7A"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
       <div class="card-body">
-        <p class="card-tag">Courtyard · Community</p>
-        <h3 class="card-title">Canopy Court</h3>
-        <p class="card-desc">Six stacked flats arranged around a shared courtyard, creating a semi-private communal landscape that anchors the building's social life.</p>
+        <p class="card-tag">Stacked Duplex · Vertical</p>
+        <h3 class="card-title">The Canopy Stack</h3>
+        <p class="card-desc">Two full-floor units stacked vertically, each with its own entrance — offering the privacy of a house with the efficiency of shared land.</p>
       </div>
-      <div class="card-footer">
-        <span class="card-meta">6 units · Courtyard typology</span>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>
+      <div class="card-footer"><span class="card-meta">2 units · 1,400 sf each</span><div class="card-arrow">→</div></div>
+    </a>
 
-    <div class="card">
-      <div class="card-img">
-        <div class="card-img-placeholder">
-          <svg class="placeholder-icon" width="56" height="40" viewBox="0 0 56 40"><rect x="2" y="12" width="10" height="26" fill="#4A5C3A"/><rect x="14" y="12" width="10" height="26" fill="#6B7C58"/><rect x="26" y="12" width="10" height="26" fill="#4A5C3A"/><rect x="38" y="12" width="10" height="26" fill="#6B7C58"/><polygon points="7,2 19,12 2,12" fill="#8E9E7A"/><polygon points="19,2 31,12 14,12" fill="#8E9E7A"/><polygon points="31,2 43,12 26,12" fill="#8E9E7A"/><polygon points="43,2 55,12 38,12" fill="#8E9E7A"/></svg>
-          <span class="card-img-label">Add project image</span>
-        </div>
-      </div>
+    <!-- 3 -->
+    <a class="card" href="third-ground.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="56" height="40" viewBox="0 0 56 40"><rect x="2" y="12" width="10" height="26" fill="#4A5C3A"/><rect x="14" y="12" width="10" height="26" fill="#6B7C58"/><rect x="26" y="12" width="10" height="26" fill="#4A5C3A"/><polygon points="7,2 19,12 2,12" fill="#8E9E7A"/><polygon points="19,2 31,12 14,12" fill="#8E9E7A"/><polygon points="31,2 43,12 26,12" fill="#8E9E7A"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
       <div class="card-body">
-        <p class="card-tag">Townhouse · Row</p>
-        <h3 class="card-title">The Linden Row</h3>
-        <p class="card-desc">A terrace of four townhouses drawing on vernacular brick traditions, with rear garden suites that add gentle density without altering the streetscape.</p>
+        <p class="card-tag">Triplex · Infill</p>
+        <h3 class="card-title">The Third Ground</h3>
+        <p class="card-desc">A three-unit infill that fits naturally into a standard lot, stepping its massing to maintain neighbourly scale at the street edge.</p>
       </div>
-      <div class="card-footer">
-        <span class="card-meta">4 + 4 units · Row typology</span>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>
+      <div class="card-footer"><span class="card-meta">3 units · Mixed configuration</span><div class="card-arrow">→</div></div>
+    </a>
 
-    <div class="card">
-      <div class="card-img">
-        <div class="card-img-placeholder">
-          <svg class="placeholder-icon" width="48" height="40" viewBox="0 0 48 40"><polygon points="24,2 44,18 4,18" fill="#4A5C3A"/><rect x="4" y="18" width="18" height="20" fill="#6B7C58"/><rect x="26" y="18" width="18" height="20" fill="#8E9E7A"/></svg>
-          <span class="card-img-label">Add project image</span>
-        </div>
-      </div>
+    <!-- 4 -->
+    <a class="card" href="corner-ground.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="48" height="40" viewBox="0 0 48 40"><polygon points="24,2 44,18 4,18" fill="#4A5C3A"/><rect x="4" y="18" width="18" height="20" fill="#6B7C58"/><rect x="26" y="18" width="18" height="20" fill="#8E9E7A"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
       <div class="card-body">
         <p class="card-tag">Fourplex · Corner</p>
         <h3 class="card-title">Corner &amp; Ground</h3>
         <p class="card-desc">A fourplex occupying a corner lot, its massing stepped to address both streets while keeping ground-floor units in close dialogue with the sidewalk.</p>
       </div>
-      <div class="card-footer">
-        <span class="card-meta">4 units · Corner typology</span>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>
+      <div class="card-footer"><span class="card-meta">4 units · Corner typology</span><div class="card-arrow">→</div></div>
+    </a>
 
-    <div class="card">
-      <div class="card-img">
-        <div class="card-img-placeholder">
-          <svg class="placeholder-icon" width="40" height="44" viewBox="0 0 40 44"><polygon points="20,2 36,14 4,14" fill="#8E9E7A"/><rect x="8" y="14" width="24" height="28" fill="#4A5C3A"/><rect x="14" y="28" width="12" height="14" fill="#6B7C58"/></svg>
-          <span class="card-img-label">Add project image</span>
-        </div>
+    <!-- 5 -->
+    <a class="card" href="lane-quartet.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="52" height="40" viewBox="0 0 52 40"><rect x="2" y="10" width="22" height="28" fill="#4A5C3A"/><rect x="28" y="16" width="22" height="22" fill="#6B7C58"/><polygon points="13,2 24,10 2,10" fill="#8E9E7A"/><polygon points="39,8 50,16 28,16" fill="#8E9E7A"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
+      <div class="card-body">
+        <p class="card-tag">Fourplex · Laneway</p>
+        <h3 class="card-title">The Lane Quartet</h3>
+        <p class="card-desc">A front-and-back fourplex that activates the laneway as a shared address, drawing life into the block's interior without touching the main streetscape.</p>
       </div>
+      <div class="card-footer"><span class="card-meta">4 units · Front + rear</span><div class="card-arrow">→</div></div>
+    </a>
+
+    <!-- 6 -->
+    <a class="card" href="linden-row.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="56" height="40" viewBox="0 0 56 40"><rect x="2" y="12" width="10" height="26" fill="#4A5C3A"/><rect x="14" y="12" width="10" height="26" fill="#6B7C58"/><rect x="26" y="12" width="10" height="26" fill="#4A5C3A"/><rect x="38" y="12" width="10" height="26" fill="#6B7C58"/><polygon points="7,2 19,12 2,12" fill="#8E9E7A"/><polygon points="19,2 31,12 14,12" fill="#8E9E7A"/><polygon points="31,2 43,12 26,12" fill="#8E9E7A"/><polygon points="43,2 55,12 38,12" fill="#8E9E7A"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
+      <div class="card-body">
+        <p class="card-tag">Townhouse · Row</p>
+        <h3 class="card-title">The Linden Row</h3>
+        <p class="card-desc">A terrace of four townhouses drawing on vernacular traditions, with rear garden suites that add gentle density without altering the streetscape.</p>
+      </div>
+      <div class="card-footer"><span class="card-meta">4 + 4 units · Row typology</span><div class="card-arrow">→</div></div>
+    </a>
+
+    <!-- 7 -->
+    <a class="card" href="canopy-court.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="48" height="44" viewBox="0 0 48 44"><rect x="4" y="4" width="18" height="18" fill="#4A5C3A"/><rect x="26" y="4" width="18" height="18" fill="#6B7C58"/><rect x="4" y="24" width="18" height="18" fill="#6B7C58"/><rect x="26" y="24" width="18" height="18" fill="#4A5C3A"/><rect x="20" y="16" width="8" height="12" fill="#8E9E7A"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
+      <div class="card-body">
+        <p class="card-tag">Courtyard · Community</p>
+        <h3 class="card-title">Canopy Court</h3>
+        <p class="card-desc">Six stacked flats arranged around a shared courtyard, creating a semi-private communal landscape that anchors the building's social life.</p>
+      </div>
+      <div class="card-footer"><span class="card-meta">6 units · Courtyard typology</span><div class="card-arrow">→</div></div>
+    </a>
+
+    <!-- 8 -->
+    <a class="card" href="garden-suite.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="40" height="44" viewBox="0 0 40 44"><polygon points="20,2 36,14 4,14" fill="#8E9E7A"/><rect x="8" y="14" width="24" height="28" fill="#4A5C3A"/><rect x="14" y="28" width="12" height="14" fill="#6B7C58"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
       <div class="card-body">
         <p class="card-tag">ADU · Backyard</p>
         <h3 class="card-title">The Garden Suite</h3>
         <p class="card-desc">A compact accessory dwelling tucked behind a heritage home, demonstrating how hidden density can quietly transform a neighbourhood over time.</p>
       </div>
-      <div class="card-footer">
-        <span class="card-meta">1 unit · 620 sf</span>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>
+      <div class="card-footer"><span class="card-meta">1 unit · 620 sf</span><div class="card-arrow">→</div></div>
+    </a>
 
-    <div class="card">
-      <div class="card-img">
-        <div class="card-img-placeholder">
-          <svg class="placeholder-icon" width="36" height="48" viewBox="0 0 36 48"><rect x="2" y="12" width="32" height="34" fill="#4A5C3A"/><rect x="6" y="18" width="10" height="8" fill="#F4F1EA" opacity="0.4"/><rect x="20" y="18" width="10" height="8" fill="#F4F1EA" opacity="0.4"/><rect x="6" y="30" width="10" height="8" fill="#F4F1EA" opacity="0.4"/><rect x="20" y="30" width="10" height="8" fill="#F4F1EA" opacity="0.4"/><polygon points="18,2 34,12 2,12" fill="#8E9E7A"/></svg>
-          <span class="card-img-label">Add project image</span>
-        </div>
+    <!-- 9 -->
+    <a class="card" href="carriage-return.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="44" height="44" viewBox="0 0 44 44"><rect x="2" y="20" width="18" height="22" fill="#4A5C3A"/><rect x="24" y="20" width="18" height="22" fill="#6B7C58"/><polygon points="11,4 22,20 2,20" fill="#8E9E7A"/><polygon points="33,4 44,20 24,20" fill="#4A5C3A"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
+      <div class="card-body">
+        <p class="card-tag">Carriage House · Heritage</p>
+        <h3 class="card-title">The Carriage Return</h3>
+        <p class="card-desc">A heritage-sensitive carriage house conversion that adds a full dwelling above a garage, preserving the original structure while unlocking new density.</p>
       </div>
+      <div class="card-footer"><span class="card-meta">1 unit · Above garage</span><div class="card-arrow">→</div></div>
+    </a>
+
+    <!-- 10 -->
+    <a class="card" href="brow-building.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="36" height="48" viewBox="0 0 36 48"><rect x="2" y="12" width="32" height="34" fill="#4A5C3A"/><rect x="6" y="18" width="10" height="8" fill="#F4F1EA" opacity="0.4"/><rect x="20" y="18" width="10" height="8" fill="#F4F1EA" opacity="0.4"/><rect x="6" y="30" width="10" height="8" fill="#F4F1EA" opacity="0.4"/><rect x="20" y="30" width="10" height="8" fill="#F4F1EA" opacity="0.4"/><polygon points="18,2 34,12 2,12" fill="#8E9E7A"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
       <div class="card-body">
         <p class="card-tag">Stacked Flats · Midrise</p>
         <h3 class="card-title">The Brow Building</h3>
         <p class="card-desc">An eight-unit stacked flat building at the upper edge of the missing middle — ambitious in density, careful in its relationship to the sky and street.</p>
       </div>
-      <div class="card-footer">
-        <span class="card-meta">8 units · 4 storeys</span>
-        <div class="card-arrow">→</div>
+      <div class="card-footer"><span class="card-meta">8 units · 4 storeys</span><div class="card-arrow">→</div></div>
+    </a>
+
+    <!-- 11 -->
+    <a class="card" href="shopfront-flat.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="52" height="44" viewBox="0 0 52 44"><rect x="2" y="16" width="48" height="26" fill="#4A5C3A"/><rect x="8" y="22" width="10" height="14" fill="#F4F1EA" opacity="0.35"/><rect x="22" y="22" width="10" height="14" fill="#F4F1EA" opacity="0.35"/><rect x="36" y="22" width="10" height="14" fill="#F4F1EA" opacity="0.35"/><rect x="10" y="6" width="32" height="12" fill="#6B7C58"/><rect x="18" y="10" width="16" height="8" fill="#F4F1EA" opacity="0.3"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
+      <div class="card-body">
+        <p class="card-tag">Mixed Use · Main Street</p>
+        <h3 class="card-title">The Shopfront Flat</h3>
+        <p class="card-desc">Ground-floor retail or workspace with residential units above — a classic main street typology that layers economy and community into a single building.</p>
       </div>
-    </div>
+      <div class="card-footer"><span class="card-meta">3 units + commercial</span><div class="card-arrow">→</div></div>
+    </a>
+
+    <!-- 12 -->
+    <a class="card" href="manor-split.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="54" height="42" viewBox="0 0 54 42"><rect x="2" y="14" width="22" height="26" fill="#4A5C3A"/><rect x="30" y="14" width="22" height="26" fill="#4A5C3A"/><rect x="18" y="6" width="18" height="10" fill="#6B7C58"/><polygon points="27,0 36,6 18,6" fill="#8E9E7A"/><rect x="22" y="26" width="10" height="14" fill="#F4F1EA" opacity="0.3"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
+      <div class="card-body">
+        <p class="card-tag">Manor House · Large Lot</p>
+        <h3 class="card-title">The Manor Split</h3>
+        <p class="card-desc">A large single-family home sensitively divided into four self-contained units, preserving the building's original presence while significantly increasing its contribution to the housing supply.</p>
+      </div>
+      <div class="card-footer"><span class="card-meta">4 units · Conversion</span><div class="card-arrow">→</div></div>
+    </a>
+
+    <!-- 13 -->
+    <a class="card" href="pocket-building.html">
+      <div class="card-img"><div class="card-img-placeholder">
+        <svg class="placeholder-icon" width="56" height="44" viewBox="0 0 56 44"><rect x="2" y="18" width="52" height="24" fill="#4A5C3A"/><rect x="6" y="24" width="8" height="12" fill="#F4F1EA" opacity="0.35"/><rect x="18" y="24" width="8" height="12" fill="#F4F1EA" opacity="0.35"/><rect x="30" y="24" width="8" height="12" fill="#F4F1EA" opacity="0.35"/><rect x="42" y="24" width="8" height="12" fill="#F4F1EA" opacity="0.35"/><rect x="8" y="8" width="40" height="12" fill="#6B7C58"/><rect x="16" y="2" width="24" height="8" fill="#8E9E7A"/></svg>
+        <span class="card-img-label">Add project image</span>
+      </div></div>
+      <div class="card-body">
+        <p class="card-tag">Micro-Suite · Urban Infill</p>
+        <h3 class="card-title">The Pocket Building</h3>
+        <p class="card-desc">A compact urban infill of six micro-suites designed for singles and young professionals — efficient, well-crafted, and quietly radical in how much it achieves on a narrow lot.</p>
+      </div>
+      <div class="card-footer"><span class="card-meta">6 units · Narrow lot</span><div class="card-arrow">→</div></div>
+    </a>
+
   </div>
 
   <div class="typology-key">
@@ -650,7 +669,7 @@
       </div>
       <div class="about-stat-row">
         <div class="about-stat">
-          <div class="about-stat-num">6</div>
+          <div class="about-stat-num">13</div>
           <div class="about-stat-label">Typologies in collection</div>
         </div>
         <div class="about-stat">
