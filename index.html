@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Understory Collection</title>
+<link rel="icon" type="image/png" href="logo.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -70,7 +71,8 @@
   .hero {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 420px;
+    grid-template-columns: 1fr 900px 320px;
+    grid-template-rows: auto;
     align-items: end;
     padding: 0 3rem 4rem;
     background: var(--cream);
@@ -128,7 +130,25 @@
     position: relative;
     display: flex; flex-direction: column;
     align-items: center; justify-content: flex-end;
-    padding-bottom: 2rem; gap: 2rem;
+    padding-bottom: 2rem; gap: 1.5rem;
+  }
+  .hero-community {
+    width: 100%; border: 1px solid var(--border);
+    overflow: hidden; position: relative;
+  }
+  .hero-community-img {
+    width: 100%; aspect-ratio: 16/9;
+    object-fit: cover; display: block;
+  }
+  .hero-community-placeholder {
+    width: 100%; aspect-ratio: 16/9;
+    background: var(--cream);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 0.75rem;
+  }
+  .hero-community-label {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--bark); font-weight: 600;
   }
   .hero-logo { width: 260px; height: auto; opacity: 0.65; display: block; }
   .hero-partners {
@@ -365,8 +385,14 @@
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-partners { display: none; }
-    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; }
-    .hero-right { display: none; }
+    .hero {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      padding: 7rem 1.5rem 4rem;
+    }
+    .hero-left { order: 1; }
+    .hero-community-mobile { order: 2; margin: 2rem 0; }
+    .hero-right { order: 3; }
     section { padding: 4rem 1.5rem; }
     .divider { margin: 0 1.5rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -385,10 +411,10 @@
     <img class="nav-mark" src="logotitle.png" alt="The Understory Collection logo"/>
   </a>
   <div class="nav-links">
-    <a href="#collection">Collection</a>
     <a href="#about">Philosophy</a>
+    <a href="#collection">Collection</a>
     <div class="nav-partners">
-      <span class="partner-tag">Saltus</span>
+      <span class="partner-tag">Saltus Ventures</span>
       <span class="partner-tag" style="color:var(--border-heavy)">·</span>
       <span class="partner-tag">Knighton A+P</span>
     </div>
@@ -399,22 +425,29 @@
 <section class="hero" id="hero">
   <div class="hero-left">
     <div class="hero-content">
-      <div class="hero-eyebrow">Missing Middle Housing</div>
+      <div class="hero-eyebrow">Middle Housing</div>
       <h1 class="hero-title">The<br><em>Understory</em><br>Collection</h1>
       <p class="hero-desc">Architecture that roots itself quietly in the neighbourhood fabric. Denser than a house, more human than a tower — the vital middle ground that healthy cities are built upon.</p>
       <div class="hero-actions">
-        <a href="#collection" class="btn-primary">View the Collection</a>
-        <a href="#about" class="btn-ghost">Our Philosophy</a>
+        <a href="#about" class="btn-primary">Our Philosophy</a>
+        <a href="#collection" class="btn-ghost">View the Collection</a>
       </div>
     </div>
   </div>
+  <!-- Community image — center column -->
+  <div class="hero-community-mobile" style="padding: 0 1.5rem; display:flex; align-items:flex-end; justify-content:center;">
+    <div style="width:100%; border:1px solid var(--border); overflow:hidden;">
+      <img src="community.png" alt="Understory Community Rendering" style="width:100%; display:block; object-fit:cover; aspect-ratio:16/10;"/>
+    </div>
+  </div>
+  <!-- Right panel -->
   <div class="hero-right">
     <img src="logo.png" alt="The Understory Collection" class="hero-logo"/>
     <div class="hero-partners">
       <div class="hero-partners-label">Created &amp; developed in partnership with</div>
       <div class="partners-row">
         <div>
-          <div class="partner-name">Saltus</div>
+          <div class="partner-name">Saltus Ventures</div>
           <div class="partner-sub">Development</div>
         </div>
         <div class="partner-divider"></div>
@@ -429,10 +462,61 @@
 
 <!-- BAND -->
 <div class="band">
-  <div class="band-item"><div class="band-dot"></div><span class="band-text"><strong>Missing Middle</strong> — 2 to 8 units</span></div>
+  <div class="band-item"><div class="band-dot"></div><span class="band-text"><strong>Middle Housing</strong> — 2 to 8 units</span></div>
   <div class="band-item"><div class="band-dot"></div><span class="band-text"><strong>Typologies</strong> — Duplex · Fourplex · Courtyard · Row · ADU · Stacked Flat</span></div>
-  <div class="band-item"><div class="band-dot"></div><span class="band-text"><strong>Saltus</strong> × <strong>Knighton Architecture + Planning</strong></span></div>
+  <div class="band-item"><div class="band-dot"></div><span class="band-text"><strong>Saltus Ventures</strong> × <strong>Knighton Architecture + Planning</strong></span></div>
 </div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="section-label">Philosophy</div>
+      <h2 class="section-title">The Middle Ground</h2>
+      <p>The understory of a forest is where the most diverse, adaptive life takes hold — sheltered by the canopy above, rooted in the ground below. This collection borrows that metaphor for housing: the missing middle as a quiet, resilient layer of the city.</p>
+      <div class="about-quote">
+        <p>"These typologies are not monuments. They are neighbours."</p>
+      </div>
+      <p>Each design asks how a building can increase density without announcing itself — how it can offer more people a place in an established neighbourhood without displacing what makes that neighbourhood worth living in.</p>
+      <p>The Understory Collection is an ongoing study — a living document of typologies, ideas, and built experiments in the space between the house and the tower. Developed in collaboration between Saltus Ventures and Knighton Architecture + Planning.</p>
+    </div>
+    <div class="about-right">
+      <div class="partners-panel">
+        <div class="partners-panel-header">Created &amp; Promoted By</div>
+        <div class="partner-entry">
+          <div class="partner-entry-name">Saltus Ventures</div>
+          <div class="partner-entry-role">Development Partner</div>
+          <div class="partner-entry-desc">Bringing middle housing typologies to market — identifying sites, securing approvals, and delivering housing that fits the neighbourhood.</div>
+        </div>
+        <div class="partner-entry">
+          <div class="partner-entry-name">Knighton</div>
+          <div class="partner-entry-role">Architecture + Planning</div>
+          <div class="partner-entry-desc">Designing every typology in the collection with precision, context, and a deep commitment to human-scale urbanism.</div>
+        </div>
+      </div>
+      <div class="about-stat-row">
+        <div class="about-stat">
+          <div class="about-stat-num">13</div>
+          <div class="about-stat-label">Typologies in collection</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">2–8</div>
+          <div class="about-stat-label">Units per project</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">2</div>
+          <div class="about-stat-label">Partner firms</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">∞</div>
+          <div class="about-stat-label">Neighbourhoods it can serve</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
 
 <!-- COLLECTION -->
 <section id="collection">
@@ -638,57 +722,6 @@
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-left">
-      <div class="section-label">Philosophy</div>
-      <h2 class="section-title">The Middle Ground</h2>
-      <p>The understory of a forest is where the most diverse, adaptive life takes hold — sheltered by the canopy above, rooted in the ground below. This collection borrows that metaphor for housing: the missing middle as a quiet, resilient layer of the city.</p>
-      <div class="about-quote">
-        <p>"These typologies are not monuments. They are neighbours."</p>
-      </div>
-      <p>Each design asks how a building can increase density without announcing itself — how it can offer more people a place in an established neighbourhood without displacing what makes that neighbourhood worth living in.</p>
-      <p>The Understory Collection is an ongoing study — a living document of typologies, ideas, and built experiments in the space between the house and the tower. Developed in collaboration between Saltus and Knighton Architecture + Planning.</p>
-    </div>
-    <div class="about-right">
-      <div class="partners-panel">
-        <div class="partners-panel-header">Created &amp; Promoted By</div>
-        <div class="partner-entry">
-          <div class="partner-entry-name">Saltus</div>
-          <div class="partner-entry-role">Development Partner</div>
-          <div class="partner-entry-desc">Bringing missing middle typologies to market — identifying sites, securing approvals, and delivering housing that fits the neighbourhood.</div>
-        </div>
-        <div class="partner-entry">
-          <div class="partner-entry-name">Knighton</div>
-          <div class="partner-entry-role">Architecture + Planning</div>
-          <div class="partner-entry-desc">Designing every typology in the collection with precision, context, and a deep commitment to human-scale urbanism.</div>
-        </div>
-      </div>
-      <div class="about-stat-row">
-        <div class="about-stat">
-          <div class="about-stat-num">13</div>
-          <div class="about-stat-label">Typologies in collection</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">2–8</div>
-          <div class="about-stat-label">Units per project</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">2</div>
-          <div class="about-stat-label">Partner firms</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">∞</div>
-          <div class="about-stat-label">Neighbourhoods it can serve</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
@@ -697,7 +730,7 @@
       <div class="footer-tagline">Missing middle housing typologies</div>
     </div>
     <div class="footer-partners">
-      <span class="footer-partner">Saltus</span>
+      <span class="footer-partner">Saltus Ventures</span>
       <span style="color:rgba(255,255,255,0.15); font-size:1rem;">×</span>
       <span class="footer-partner">Knighton Architecture + Planning</span>
     </div>
