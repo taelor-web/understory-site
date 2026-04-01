@@ -510,7 +510,7 @@
       </div>
       <div class="about-stat-row">
         <div class="about-stat">
-          <div class="about-stat-num">13</div>
+          <div class="about-stat-num">12</div>
           <div class="about-stat-label">Typologies in collection</div>
         </div>
         <div class="about-stat">
@@ -542,198 +542,148 @@
     </div>
     <div class="filter-bar">
       <button class="filter-btn active" onclick="filterCards('all')">All</button>
+      <button class="filter-btn" onclick="filterCards('studio')">Studio Cottage</button>
+      <button class="filter-btn" onclick="filterCards('1bed')">1 Bed Cottage</button>
+      <button class="filter-btn" onclick="filterCards('2bed')">2 Bed Cottage</button>
+      <button class="filter-btn" onclick="filterCards('3bed')">3 Bed Cottage</button>
       <button class="filter-btn" onclick="filterCards('duplex')">Duplex</button>
-      <button class="filter-btn" onclick="filterCards('triplex')">Triplex</button>
-      <button class="filter-btn" onclick="filterCards('fourplex')">Fourplex</button>
-      <button class="filter-btn" onclick="filterCards('townhouse')">Townhouse</button>
-      <button class="filter-btn" onclick="filterCards('courtyard')">Courtyard</button>
       <button class="filter-btn" onclick="filterCards('adu')">ADU</button>
-      <button class="filter-btn" onclick="filterCards('mixed')">Mixed Use</button>
-      <button class="filter-btn" onclick="filterCards('stacked')">Stacked Flats</button>
+      <button class="filter-btn" onclick="filterCards('5bed')">5 Bed Cottage</button>
     </div>
   </div>
 
   <div class="grid">
 
-    <!-- 1 -->
-    <a class="card" href="rooted-pair.html" data-type="duplex">
-      <div class="card-img">
-        <img src="rooted-pair-main.png" alt="The Rooted Pair" style="width:100%; height:100%; object-fit:cover; display:block;"/>
-      </div>
+    <!-- 1 The Nook -->
+    <a class="card" href="the-nook.html" data-type="studio">
+      <div class="card-img"><img src="nook-main.png" alt="The Nook" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       <div class="card-body">
-        <p class="card-tag">Duplex · Infill</p>
-        <h3 class="card-title">The Rooted Pair</h3>
-        <p class="card-desc">A side-by-side duplex that mirrors the massing of its single-family neighbours while quietly doubling the density of the block.</p>
+        <p class="card-tag">Studio Cottage</p>
+        <h3 class="card-title">The Nook</h3>
+        <p class="card-desc">A compact studio cottage that tucks a full living experience into the footprint of a large garage — a starter home, a downsizer's landing spot, or gentle infill on an oversized lot.</p>
       </div>
-      <div class="card-footer"><span class="card-meta">2 units · 1,800 sf each</span><div class="card-arrow">→</div></div>
+      <div class="card-footer"><span class="card-meta">1 unit · 547 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 2 -->
-    <a class="card" href="canopy-stack.html" data-type="duplex">
-      <div class="card-img"><div class="card-img-placeholder">
-        <svg class="placeholder-icon" width="48" height="40" viewBox="0 0 48 40"><rect x="2" y="8" width="20" height="30" fill="#4A5C3A"/><rect x="26" y="8" width="20" height="30" fill="#4A5C3A"/><rect x="16" y="2" width="16" height="10" fill="#8E9E7A"/></svg>
-        <span class="card-img-label">Add project image</span>
-      </div></div>
+    <!-- 2 The Hollow -->
+    <a class="card" href="the-hollow.html" data-type="1bed">
+      <div class="card-img"><img src="hollow-main.png" alt="The Hollow" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       <div class="card-body">
-        <p class="card-tag">Stacked Duplex · Vertical</p>
-        <h3 class="card-title">The Canopy Stack</h3>
-        <p class="card-desc">Two full-floor units stacked vertically, each with its own entrance — offering the privacy of a house with the efficiency of shared land.</p>
+        <p class="card-tag">1 Bed Cottage</p>
+        <h3 class="card-title">The Hollow</h3>
+        <p class="card-desc">A one-bedroom cottage that stretches upward rather than outward, fitting a complete two-storey home onto a 14-foot-wide footprint — a genuine private dwelling on a sliver of land.</p>
       </div>
-      <div class="card-footer"><span class="card-meta">2 units · 1,400 sf each</span><div class="card-arrow">→</div></div>
+      <div class="card-footer"><span class="card-meta">1 unit · 773 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 3 -->
-    <a class="card" href="third-ground.html" data-type="triplex">
-      <div class="card-img"><div class="card-img-placeholder">
-        <svg class="placeholder-icon" width="56" height="40" viewBox="0 0 56 40"><rect x="2" y="12" width="10" height="26" fill="#4A5C3A"/><rect x="14" y="12" width="10" height="26" fill="#6B7C58"/><rect x="26" y="12" width="10" height="26" fill="#4A5C3A"/><polygon points="7,2 19,12 2,12" fill="#8E9E7A"/><polygon points="19,2 31,12 14,12" fill="#8E9E7A"/><polygon points="31,2 43,12 26,12" fill="#8E9E7A"/></svg>
-        <span class="card-img-label">Add project image</span>
-      </div></div>
+    <!-- 3 The Burrow -->
+    <a class="card" href="the-burrow.html" data-type="studio">
+      <div class="card-img"><img src="burrow-main.png" alt="The Burrow" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       <div class="card-body">
-        <p class="card-tag">Triplex · Infill</p>
-        <h3 class="card-title">The Third Ground</h3>
-        <p class="card-desc">A three-unit infill that fits naturally into a standard lot, stepping its massing to maintain neighbourly scale at the street edge.</p>
+        <p class="card-tag">Studio Cottage</p>
+        <h3 class="card-title">The Burrow</h3>
+        <p class="card-desc">The simplest expression of a home — a single-storey studio cottage that sits lightly on the ground with no stairs, no complexity, and no wasted space. The most affordable unit in the collection.</p>
       </div>
-      <div class="card-footer"><span class="card-meta">3 units · Mixed configuration</span><div class="card-arrow">→</div></div>
+      <div class="card-footer"><span class="card-meta">1 unit · 420 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 4 -->
-    <a class="card" href="corner-ground.html" data-type="fourplex">
-      <div class="card-img"><div class="card-img-placeholder">
-        <svg class="placeholder-icon" width="48" height="40" viewBox="0 0 48 40"><polygon points="24,2 44,18 4,18" fill="#4A5C3A"/><rect x="4" y="18" width="18" height="20" fill="#6B7C58"/><rect x="26" y="18" width="18" height="20" fill="#8E9E7A"/></svg>
-        <span class="card-img-label">Add project image</span>
-      </div></div>
+    <!-- 4 The Holt -->
+    <a class="card" href="the-holt.html" data-type="2bed">
+      <div class="card-img"><img src="holt-main.png" alt="The Holt" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       <div class="card-body">
-        <p class="card-tag">Fourplex · Corner</p>
-        <h3 class="card-title">Corner &amp; Ground</h3>
-        <p class="card-desc">A fourplex occupying a corner lot, its massing stepped to address both streets while keeping ground-floor units in close dialogue with the sidewalk.</p>
+        <p class="card-tag">2 Bed Cottage</p>
+        <h3 class="card-title">The Holt</h3>
+        <p class="card-desc">A two-bedroom cottage that stretches its narrow 14-foot width across two full storeys, achieving the room count of a family home without demanding more than a lane-width of lot frontage.</p>
       </div>
-      <div class="card-footer"><span class="card-meta">4 units · Corner typology</span><div class="card-arrow">→</div></div>
+      <div class="card-footer"><span class="card-meta">1 unit · 888 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 5 -->
-    <a class="card" href="lane-quartet.html" data-type="fourplex">
-      <div class="card-img"><div class="card-img-placeholder">
-        <svg class="placeholder-icon" width="52" height="40" viewBox="0 0 52 40"><rect x="2" y="10" width="22" height="28" fill="#4A5C3A"/><rect x="28" y="16" width="22" height="22" fill="#6B7C58"/><polygon points="13,2 24,10 2,10" fill="#8E9E7A"/><polygon points="39,8 50,16 28,16" fill="#8E9E7A"/></svg>
-        <span class="card-img-label">Add project image</span>
-      </div></div>
+    <!-- 5 The Fern -->
+    <a class="card" href="the-fern.html" data-type="3bed">
+      <div class="card-img"><img src="fern-main.png" alt="The Fern" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       <div class="card-body">
-        <p class="card-tag">Fourplex · Laneway</p>
-        <h3 class="card-title">The Lane Quartet</h3>
-        <p class="card-desc">A front-and-back fourplex that activates the laneway as a shared address, drawing life into the block's interior without touching the main streetscape.</p>
+        <p class="card-tag">3 Bed Cottage</p>
+        <h3 class="card-title">The Fern</h3>
+        <p class="card-desc">A three-bedroom cottage that steps up to a wider footprint, offering the space and layout of a conventional family home at a scale that still fits comfortably on a modest lot.</p>
       </div>
-      <div class="card-footer"><span class="card-meta">4 units · Front + rear</span><div class="card-arrow">→</div></div>
+      <div class="card-footer"><span class="card-meta">1 unit · 1,231 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 6 -->
-    <a class="card" href="linden-row.html" data-type="townhouse">
-      <div class="card-img"><div class="card-img-placeholder">
-        <svg class="placeholder-icon" width="56" height="40" viewBox="0 0 56 40"><rect x="2" y="12" width="10" height="26" fill="#4A5C3A"/><rect x="14" y="12" width="10" height="26" fill="#6B7C58"/><rect x="26" y="12" width="10" height="26" fill="#4A5C3A"/><rect x="38" y="12" width="10" height="26" fill="#6B7C58"/><polygon points="7,2 19,12 2,12" fill="#8E9E7A"/><polygon points="19,2 31,12 14,12" fill="#8E9E7A"/><polygon points="31,2 43,12 26,12" fill="#8E9E7A"/><polygon points="43,2 55,12 38,12" fill="#8E9E7A"/></svg>
-        <span class="card-img-label">Add project image</span>
-      </div></div>
+    <!-- 6 The Clover -->
+    <a class="card" href="the-clover.html" data-type="3bed">
+      <div class="card-img"><img src="clover-main.png" alt="The Clover" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       <div class="card-body">
-        <p class="card-tag">Townhouse · Row</p>
-        <h3 class="card-title">The Linden Row</h3>
-        <p class="card-desc">A terrace of four townhouses drawing on vernacular traditions, with rear garden suites that add gentle density without altering the streetscape.</p>
+        <p class="card-tag">3 Bed Cottage</p>
+        <h3 class="card-title">The Clover</h3>
+        <p class="card-desc">A three-bedroom cottage that stretches deeper into its lot to carve out generous living spaces — quiet single-family living that sits politely alongside smaller neighbours.</p>
       </div>
-      <div class="card-footer"><span class="card-meta">4 + 4 units · Row typology</span><div class="card-arrow">→</div></div>
+      <div class="card-footer"><span class="card-meta">1 unit · 1,365 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 7 -->
-    <a class="card" href="canopy-court.html" data-type="courtyard">
-      <div class="card-img"><div class="card-img-placeholder">
-        <svg class="placeholder-icon" width="48" height="44" viewBox="0 0 48 44"><rect x="4" y="4" width="18" height="18" fill="#4A5C3A"/><rect x="26" y="4" width="18" height="18" fill="#6B7C58"/><rect x="4" y="24" width="18" height="18" fill="#6B7C58"/><rect x="26" y="24" width="18" height="18" fill="#4A5C3A"/><rect x="20" y="16" width="8" height="12" fill="#8E9E7A"/></svg>
-        <span class="card-img-label">Add project image</span>
-      </div></div>
+    <!-- 7 The Sage -->
+    <a class="card" href="the-sage.html" data-type="3bed">
+      <div class="card-img"><img src="sage-main.png" alt="The Sage" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       <div class="card-body">
-        <p class="card-tag">Courtyard · Community</p>
-        <h3 class="card-title">Canopy Court</h3>
-        <p class="card-desc">Six stacked flats arranged around a shared courtyard, creating a semi-private communal landscape that anchors the building's social life.</p>
+        <p class="card-tag">3 Bed Cottage</p>
+        <h3 class="card-title">The Sage</h3>
+        <p class="card-desc">The largest single-family cottage in the collection, offering three bedrooms across nearly 1,900 square feet of living space spread over two storeys — generous enough for a growing family.</p>
       </div>
-      <div class="card-footer"><span class="card-meta">6 units · Courtyard typology</span><div class="card-arrow">→</div></div>
+      <div class="card-footer"><span class="card-meta">1 unit · 1,892 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 8 -->
-    <a class="card" href="garden-suite.html" data-type="adu">
-      <div class="card-img"><div class="card-img-placeholder">
-        <svg class="placeholder-icon" width="40" height="44" viewBox="0 0 40 44"><polygon points="20,2 36,14 4,14" fill="#8E9E7A"/><rect x="8" y="14" width="24" height="28" fill="#4A5C3A"/><rect x="14" y="28" width="12" height="14" fill="#6B7C58"/></svg>
-        <span class="card-img-label">Add project image</span>
-      </div></div>
+    <!-- 8 The Sedge ADU -->
+    <a class="card" href="the-sedge-adu.html" data-type="adu">
+      <div class="card-img"><img src="sedge-adu-main.png" alt="The Sedge ADU" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       <div class="card-body">
-        <p class="card-tag">ADU · Backyard</p>
-        <h3 class="card-title">The Garden Suite</h3>
-        <p class="card-desc">A compact accessory dwelling tucked behind a heritage home, demonstrating how hidden density can quietly transform a neighbourhood over time.</p>
+        <p class="card-tag">2 Bed + ADU Cottage</p>
+        <h3 class="card-title">The Sedge ADU</h3>
+        <p class="card-desc">A two-bedroom cottage paired with an accessory dwelling unit on a single lot — two independent homes that share land and infrastructure while maintaining complete privacy from one another.</p>
       </div>
-      <div class="card-footer"><span class="card-meta">1 unit · 620 sf</span><div class="card-arrow">→</div></div>
+      <div class="card-footer"><span class="card-meta">2 units · 885 + 1,007 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 9 -->
-    <a class="card" href="carriage-return.html" data-type="adu">
-      <div class="card-img"><div class="card-img-placeholder">
-        <svg class="placeholder-icon" width="44" height="44" viewBox="0 0 44 44"><rect x="2" y="20" width="18" height="22" fill="#4A5C3A"/><rect x="24" y="20" width="18" height="22" fill="#6B7C58"/><polygon points="11,4 22,20 2,20" fill="#8E9E7A"/><polygon points="33,4 44,20 24,20" fill="#4A5C3A"/></svg>
-        <span class="card-img-label">Add project image</span>
-      </div></div>
+    <!-- 9 The Sedge -->
+    <a class="card" href="the-sedge.html" data-type="2bed">
+      <div class="card-img"><img src="sedge-main.png" alt="The Sedge" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       <div class="card-body">
-        <p class="card-tag">Carriage House · Heritage</p>
-        <h3 class="card-title">The Carriage Return</h3>
-        <p class="card-desc">A heritage-sensitive carriage house conversion that adds a full dwelling above a garage, preserving the original structure while unlocking new density.</p>
+        <p class="card-tag">2 Bed Cottage</p>
+        <h3 class="card-title">The Sedge</h3>
+        <p class="card-desc">The standalone sibling of the Sedge + ADU — a two-bedroom cottage without the secondary suite, ready for a generous garden, future infill, or simply the luxury of unbuilt space.</p>
       </div>
-      <div class="card-footer"><span class="card-meta">1 unit · Above garage</span><div class="card-arrow">→</div></div>
+      <div class="card-footer"><span class="card-meta">1 unit · 885 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 10 -->
-    <a class="card" href="brow-building.html" data-type="stacked">
-      <div class="card-img"><div class="card-img-placeholder">
-        <svg class="placeholder-icon" width="36" height="48" viewBox="0 0 36 48"><rect x="2" y="12" width="32" height="34" fill="#4A5C3A"/><rect x="6" y="18" width="10" height="8" fill="#F4F1EA" opacity="0.4"/><rect x="20" y="18" width="10" height="8" fill="#F4F1EA" opacity="0.4"/><rect x="6" y="30" width="10" height="8" fill="#F4F1EA" opacity="0.4"/><rect x="20" y="30" width="10" height="8" fill="#F4F1EA" opacity="0.4"/><polygon points="18,2 34,12 2,12" fill="#8E9E7A"/></svg>
-        <span class="card-img-label">Add project image</span>
-      </div></div>
+    <!-- 10 The Hedge -->
+    <a class="card" href="the-hedge.html" data-type="duplex">
+      <div class="card-img"><img src="hedge-main.png" alt="The Hedge" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       <div class="card-body">
-        <p class="card-tag">Stacked Flats · Midrise</p>
-        <h3 class="card-title">The Brow Building</h3>
-        <p class="card-desc">An eight-unit stacked flat building at the upper edge of the missing middle — ambitious in density, careful in its relationship to the sky and street.</p>
+        <p class="card-tag">2 Bed Duplex</p>
+        <h3 class="card-title">The Hedge</h3>
+        <p class="card-desc">A side-by-side duplex that mirrors the massing of a detached house while doubling the homes on one lot — each two-bedroom unit reads as its own complete home from the street.</p>
       </div>
-      <div class="card-footer"><span class="card-meta">8 units · 4 storeys</span><div class="card-arrow">→</div></div>
+      <div class="card-footer"><span class="card-meta">2 units · 885 sf each</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 11 -->
-    <a class="card" href="shopfront-flat.html" data-type="mixed">
-      <div class="card-img"><div class="card-img-placeholder">
-        <svg class="placeholder-icon" width="52" height="44" viewBox="0 0 52 44"><rect x="2" y="16" width="48" height="26" fill="#4A5C3A"/><rect x="8" y="22" width="10" height="14" fill="#F4F1EA" opacity="0.35"/><rect x="22" y="22" width="10" height="14" fill="#F4F1EA" opacity="0.35"/><rect x="36" y="22" width="10" height="14" fill="#F4F1EA" opacity="0.35"/><rect x="10" y="6" width="32" height="12" fill="#6B7C58"/><rect x="18" y="10" width="16" height="8" fill="#F4F1EA" opacity="0.3"/></svg>
-        <span class="card-img-label">Add project image</span>
-      </div></div>
+    <!-- 11 The Twinberry -->
+    <a class="card" href="the-twinberry.html" data-type="duplex">
+      <div class="card-img"><img src="twinberry-main.png" alt="The Twinberry" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       <div class="card-body">
-        <p class="card-tag">Mixed Use · Main Street</p>
-        <h3 class="card-title">The Shopfront Flat</h3>
-        <p class="card-desc">Ground-floor retail or workspace with residential units above — a classic main street typology that layers economy and community into a single building.</p>
+        <p class="card-tag">2 Bed Duplex</p>
+        <h3 class="card-title">The Twinberry</h3>
+        <p class="card-desc">A duplex that pairs two homes on a wider lot, giving each unit more generous proportions — separate entrance, separate outdoor space, achieving density without compromise.</p>
       </div>
-      <div class="card-footer"><span class="card-meta">3 units + commercial</span><div class="card-arrow">→</div></div>
+      <div class="card-footer"><span class="card-meta">2 units · 1,776 sf total</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 12 -->
-    <a class="card" href="manor-split.html" data-type="stacked">
-      <div class="card-img"><div class="card-img-placeholder">
-        <svg class="placeholder-icon" width="54" height="42" viewBox="0 0 54 42"><rect x="2" y="14" width="22" height="26" fill="#4A5C3A"/><rect x="30" y="14" width="22" height="26" fill="#4A5C3A"/><rect x="18" y="6" width="18" height="10" fill="#6B7C58"/><polygon points="27,0 36,6 18,6" fill="#8E9E7A"/><rect x="22" y="26" width="10" height="14" fill="#F4F1EA" opacity="0.3"/></svg>
-        <span class="card-img-label">Add project image</span>
-      </div></div>
+    <!-- 12 The Bramble -->
+    <a class="card" href="the-bramble.html" data-type="5bed">
+      <div class="card-img"><img src="bramble-main.png" alt="The Bramble" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
       <div class="card-body">
-        <p class="card-tag">Manor House · Large Lot</p>
-        <h3 class="card-title">The Manor Split</h3>
-        <p class="card-desc">A large single-family home sensitively divided into four self-contained units, preserving the building's original presence while significantly increasing its contribution to the housing supply.</p>
+        <p class="card-tag">5 Bed Cottage</p>
+        <h3 class="card-title">The Bramble</h3>
+        <p class="card-desc">A five-bedroom cottage for households that need real room — a large or multigenerational family, a co-living arrangement, or anyone who has simply outgrown the standard three-bedroom box.</p>
       </div>
-      <div class="card-footer"><span class="card-meta">4 units · Conversion</span><div class="card-arrow">→</div></div>
-    </a>
-
-    <!-- 13 -->
-    <a class="card" href="pocket-building.html" data-type="stacked">
-      <div class="card-img"><div class="card-img-placeholder">
-        <svg class="placeholder-icon" width="56" height="44" viewBox="0 0 56 44"><rect x="2" y="18" width="52" height="24" fill="#4A5C3A"/><rect x="6" y="24" width="8" height="12" fill="#F4F1EA" opacity="0.35"/><rect x="18" y="24" width="8" height="12" fill="#F4F1EA" opacity="0.35"/><rect x="30" y="24" width="8" height="12" fill="#F4F1EA" opacity="0.35"/><rect x="42" y="24" width="8" height="12" fill="#F4F1EA" opacity="0.35"/><rect x="8" y="8" width="40" height="12" fill="#6B7C58"/><rect x="16" y="2" width="24" height="8" fill="#8E9E7A"/></svg>
-        <span class="card-img-label">Add project image</span>
-      </div></div>
-      <div class="card-body">
-        <p class="card-tag">Micro-Suite · Urban Infill</p>
-        <h3 class="card-title">The Pocket Building</h3>
-        <p class="card-desc">A compact urban infill of six micro-suites designed for singles and young professionals — efficient, well-crafted, and quietly radical in how much it achieves on a narrow lot.</p>
-      </div>
-      <div class="card-footer"><span class="card-meta">6 units · Narrow lot</span><div class="card-arrow">→</div></div>
+      <div class="card-footer"><span class="card-meta">1 unit · 1,702 sf</span><div class="card-arrow">→</div></div>
     </a>
 
   </div>
