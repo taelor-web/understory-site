@@ -71,8 +71,8 @@
   .hero {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 900px 320px;
-    grid-template-rows: auto;
+    grid-template-columns: 1fr 420px;
+    grid-template-rows: auto auto;
     align-items: end;
     padding: 0 3rem 4rem;
     background: var(--cream);
@@ -385,14 +385,8 @@
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-partners { display: none; }
-    .hero {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-      padding: 7rem 1.5rem 4rem;
-    }
-    .hero-left { order: 1; }
-    .hero-community-mobile { order: 2; margin: 2rem 0; }
-    .hero-right { order: 3; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; }
+    .hero-right { display: none; }
     section { padding: 4rem 1.5rem; }
     .divider { margin: 0 1.5rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -423,6 +417,13 @@
 
 <!-- HERO -->
 <section class="hero" id="hero">
+  <!-- Community image — full width top with fade -->
+  <div style="grid-column: 1 / -1; margin-bottom: 2.5rem; position:relative;">
+    <div style="width:100%; overflow:hidden; border: 1px solid var(--border);">
+      <img src="community.png" alt="Understory Community Rendering" style="width:100%; display:block; object-fit:cover; aspect-ratio:16/7;"/>
+    </div>
+    <div style="position:absolute; bottom:0; left:0; right:0; height:25%; background:linear-gradient(to bottom, transparent, #F4F1EA);"></div>
+  </div>
   <div class="hero-left">
     <div class="hero-content">
       <div class="hero-eyebrow">Middle Housing</div>
@@ -434,13 +435,6 @@
       </div>
     </div>
   </div>
-  <!-- Community image — center column -->
-  <div class="hero-community-mobile" style="padding: 0 1.5rem; display:flex; align-items:flex-end; justify-content:center;">
-    <div style="width:100%; border:1px solid var(--border); overflow:hidden;">
-      <img src="community.png" alt="Understory Community Rendering" style="width:100%; display:block; object-fit:cover; aspect-ratio:16/10;"/>
-    </div>
-  </div>
-  <!-- Right panel -->
   <div class="hero-right">
     <img src="logo.png" alt="The Understory Collection" class="hero-logo"/>
     <div class="hero-partners">
