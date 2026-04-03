@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Holt — The Understory Collection</title>
+<title>The Burrow — The Understory Collection</title>
 <link rel="icon" type="image/png" href="logo.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -46,7 +46,7 @@
   .floorplan-header::after { content:''; flex:0 0 24px; height:1px; background:var(--olive); }
   .floorplan-card { border:1px solid var(--border); background:var(--cream); overflow:hidden; }
   .floorplan-card-header { padding:0.75rem 1.25rem; border-bottom:1px solid var(--border); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--bark); font-weight:700; background:var(--off-white); }
-  .floorplan-card img { width:100%; display:block; object-fit:contain; background:var(--cream); }
+  .floorplan-card img { width:100%; max-width:720px; display:block; object-fit:contain; background:var(--cream); margin:0 auto; padding:2rem; }
   footer { background:var(--charcoal); color:var(--cream); padding:3rem; }
   .footer-top { display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:2rem; border-bottom:1px solid rgba(255,255,255,0.1); flex-wrap:wrap; gap:2rem; }
   .footer-logo { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:300; letter-spacing:0.06em; color:var(--cream); }
@@ -75,32 +75,40 @@
   <div class="breadcrumb">
     <a href="index.html">Home</a><span class="breadcrumb-sep">›</span>
     <a href="index.html#collection">Collection</a><span class="breadcrumb-sep">›</span>
-    <span class="breadcrumb-current">The Holt</span>
+    <span class="breadcrumb-current">The Burrow</span>
   </div>
   <div class="project-hero">
     <div class="project-info">
-      <div class="project-tag">2 Bed Cottage</div>
-      <h1 class="project-title">The <em>Holt</em></h1>
+      <div class="project-tag">Studio Cottage</div>
+      <h1 class="project-title">The <em>Burrow</em></h1>
       <div class="stats-grid">
-        <div class="stat-cell"><div class="stat-label">Units</div><div class="stat-value">1<span>14 × 36</span></div></div>
-        <div class="stat-cell"><div class="stat-label">Unit size</div><div class="stat-value">888<span>sq ft</span></div></div>
-        <div class="stat-cell"><div class="stat-label">Total area</div><div class="stat-value">888<span>sq ft</span></div></div>
+        <div class="stat-cell"><div class="stat-label">Units</div><div class="stat-value">1<span>14 × 30</span></div></div>
+        <div class="stat-cell"><div class="stat-label">Unit size</div><div class="stat-value">420<span>sq ft</span></div></div>
+        <div class="stat-cell"><div class="stat-label">Total area</div><div class="stat-value">420<span>sq ft</span></div></div>
         <div class="stat-cell"><div class="stat-label">Starting price</div><div class="stat-value" style="font-size:1rem">Pricing<span>Coming Soon</span></div></div>
-        <div class="stat-cell"><div class="stat-label">Storeys</div><div class="stat-value">2<span>Above grade</span></div></div>
-        <div class="stat-cell"><div class="stat-label">Typology</div><div class="stat-value" style="font-size:1rem">2 Bed<span>Cottage</span></div></div>
+        <div class="stat-cell"><div class="stat-label">Storeys</div><div class="stat-value">1<span>Single level</span></div></div>
+        <div class="stat-cell"><div class="stat-label">Typology</div><div class="stat-value" style="font-size:1rem">Studio<span>Cottage</span></div></div>
       </div>
-      <p class="project-desc">A two-bedroom cottage that stretches its narrow 14-foot width across two full storeys, achieving the room count of a family home without demanding more than a lane-width of lot frontage. Compact enough to build in a side yard, complete enough to be someone's permanent address.</p>
+      <p class="project-desc">The simplest expression of a home — a single-storey studio cottage that sits lightly on the ground with no stairs, no complexity, and no wasted space. At 420 square feet it is the most affordable unit in the collection, purpose-built for accessible living, backyard infill, or a first step onto the housing ladder.</p>
       <a href="index.html#collection" class="btn-back">← Back to Collection</a>
     </div>
     <div class="project-image-wrap">
-      <img src="holt-main.png" alt="The Holt"/>
+      <img src="burrow-main.png" alt="The Burrow"/>
     </div>
   </div>
   <div class="floorplan-section">
-    <div class="floorplan-header">Floor Plan</div>
-    <div class="floorplan-card">
-      <div class="floorplan-card-header">Floor Plan — All Levels</div>
-      <img src="holt-plan.png" alt="The Holt Floor Plan"/>
+    <div class="floorplan-header">Floor Plans &amp; Images</div>
+    <!-- MEDIA GALLERY: currently single image, replace this section with carousel when ready -->
+    <div class="media-gallery" id="burrow-gallery">
+      <div class="media-gallery-track">
+        <div class="media-gallery-item">
+          <div class="floorplan-card">
+            <div class="floorplan-card-header">Floor Plan — All Levels</div>
+            <img src="burrow-plan.png" alt="The Burrow Floor Plan"/>
+          </div>
+        </div>
+        <!-- Add more .media-gallery-item divs here for additional images -->
+      </div>
     </div>
   </div>
 </div>
