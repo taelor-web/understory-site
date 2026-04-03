@@ -232,17 +232,18 @@
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-    background: var(--border);
-    border: 1px solid var(--border);
+    gap: 1rem;
+    background: transparent;
+    border: none;
   }
   .card {
     background: var(--off-white); cursor: pointer;
-    transition: background 0.25s; overflow: hidden;
-    display: flex; flex-direction: column;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    overflow: hidden; display: flex; flex-direction: column;
     text-decoration: none; color: inherit;
+    border: 1px solid var(--border);
   }
-  .card:hover { background: var(--cream); }
+  .card:hover { background: var(--cream); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(30,30,30,0.08); }
   .card-img {
     width: 100%; aspect-ratio: 4/3;
     background: var(--cream); position: relative; overflow: hidden;
