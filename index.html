@@ -8,411 +8,142 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --cream:       #F4F1EA;
-    --off-white:   #FAF9F5;
-    --charcoal:    #1E1E1E;
-    --dark:        #2A2A2A;
-    --olive:       #4A5C3A;
-    --olive-mid:   #6B7C58;
-    --olive-light: #8E9E7A;
-    --tan:         #C9A97A;
-    --tan-light:   #DFC99A;
-    --slate:       #6B7E8A;
-    --slate-light: #9EB0BC;
-    --soil:        #3B2E1E;
-    --bark:        #5C4A32;
-    --border:      rgba(30,30,30,0.12);
-    --border-heavy:rgba(30,30,30,0.22);
+    --cream:#F4F1EA; --off-white:#FAF9F5; --charcoal:#1E1E1E; --dark:#2A2A2A;
+    --olive:#4A5C3A; --olive-mid:#6B7C58; --olive-light:#8E9E7A;
+    --tan:#C9A97A; --tan-light:#DFC99A; --slate:#6B7E8A; --slate-light:#9EB0BC;
+    --soil:#3B2E1E; --bark:#5C4A32;
+    --border:rgba(30,30,30,0.12); --border-heavy:rgba(30,30,30,0.22);
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 400;
-    background: var(--off-white);
-    color: var(--charcoal);
-    font-size: 15px;
-    line-height: 1.7;
-    letter-spacing: 0.01em;
-  }
+  body { font-family:'Rajdhani',sans-serif; font-weight:400; background:var(--off-white); color:var(--charcoal); font-size:15px; line-height:1.7; letter-spacing:0.01em; }
 
   /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0.75rem 3rem;
-    background: rgba(250,249,245,0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .nav-mark { height: 64px; width: auto; flex-shrink: 0; }
-  .nav-links { display: flex; gap: 2.5rem; align-items: center; }
-  .nav-links a {
-    text-decoration: none;
-    font-size: 0.75rem; font-weight: 600;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--dark); transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--olive); }
-  .nav-partners {
-    display: flex; align-items: center; gap: 1rem;
-    padding-left: 2rem; border-left: 1px solid var(--border);
-  }
-  .partner-tag {
-    font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--bark); font-weight: 600;
-  }
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0.75rem 3rem; background:rgba(250,249,245,0.95); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
+  .nav-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .nav-mark { height:64px; width:auto; flex-shrink:0; }
+  .nav-links { display:flex; gap:2.5rem; align-items:center; }
+  .nav-links a { text-decoration:none; font-size:0.75rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--dark); transition:color 0.2s; }
+  .nav-links a:hover { color:var(--olive); }
+  .nav-partners { display:flex; align-items:center; gap:1rem; padding-left:2rem; border-left:1px solid var(--border); }
+  .partner-tag { font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--bark); font-weight:600; text-decoration:none; }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    grid-template-rows: auto auto;
-    align-items: end;
-    padding: 0 3rem 4rem;
-    background: var(--cream);
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      repeating-linear-gradient(135deg, transparent 0px, transparent 48px, rgba(74,92,58,0.04) 48px, rgba(74,92,58,0.04) 49px),
-      repeating-linear-gradient(45deg,  transparent 0px, transparent 48px, rgba(74,92,58,0.04) 48px, rgba(74,92,58,0.04) 49px);
-  }
-  .hero-left { position: relative; }
-  .hero-content { position: relative; max-width: 720px; padding-top: 2rem; }
-  .hero-eyebrow {
-    display: flex; align-items: center; gap: 1rem;
-    font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--olive); margin-bottom: 2rem; font-weight: 600;
-  }
-  .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--olive); }
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.5rem, 6.5vw, 6.5rem);
-    font-weight: 300; line-height: 1.0;
-    color: var(--charcoal); margin-bottom: 2rem;
-  }
-  .hero-title em { font-style: italic; color: var(--olive); }
-  .hero-desc {
-    max-width: 500px;
-    color: var(--soil); font-size: 1.05rem;
-    line-height: 1.8; margin-bottom: 3rem; font-weight: 400;
-  }
-  .hero-actions { display: flex; gap: 1.5rem; align-items: center; }
-  .btn-primary {
-    display: inline-block; padding: 0.7rem 2rem;
-    background: var(--olive); color: #fff;
-    text-decoration: none;
-    font-size: 0.7rem; font-weight: 600;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    transition: background 0.2s;
-  }
-  .btn-primary:hover { background: var(--olive-mid); }
-  .btn-ghost {
-    display: inline-block; padding: 0.7rem 2rem;
-    border: 1px solid var(--border-heavy); color: var(--dark);
-    text-decoration: none;
-    font-size: 0.7rem; font-weight: 600;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-ghost:hover { border-color: var(--olive); color: var(--olive); }
-
-  /* HERO RIGHT */
-  .hero-right {
-    position: relative;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: flex-end;
-    padding-bottom: 2rem; gap: 1.5rem;
-  }
-  .hero-community {
-    width: 100%; border: 1px solid var(--border);
-    overflow: hidden; position: relative;
-  }
-  .hero-community-img {
-    width: 100%; aspect-ratio: 16/9;
-    object-fit: cover; display: block;
-  }
-  .hero-community-placeholder {
-    width: 100%; aspect-ratio: 16/9;
-    background: var(--cream);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 0.75rem;
-  }
-  .hero-community-label {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--bark); font-weight: 600;
-  }
-  .hero-logo { width: 260px; height: auto; opacity: 0.65; display: block; }
-  .hero-partners {
-    width: 100%; padding: 1.5rem;
-    border: 1px solid var(--border);
-    background: rgba(250,249,245,0.7);
-    backdrop-filter: blur(4px);
-  }
-  .hero-partners-label {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--bark); margin-bottom: 1rem; font-weight: 600;
-  }
-  .partners-row { display: flex; gap: 1.5rem; align-items: center; }
-  .partner-name {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 0.85rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal);
-  }
-  .partner-sub {
-    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--bark); font-weight: 500;
-  }
-  .partner-divider { width: 1px; height: 28px; background: var(--border-heavy); }
+  .hero { min-height:100vh; display:grid; grid-template-columns:1fr 420px; grid-template-rows:auto auto; align-items:end; padding:0 3rem 4rem; background:var(--cream); position:relative; overflow:hidden; }
+  .hero::before { content:''; position:absolute; inset:0; background: repeating-linear-gradient(135deg,transparent 0px,transparent 48px,rgba(74,92,58,0.04) 48px,rgba(74,92,58,0.04) 49px), repeating-linear-gradient(45deg,transparent 0px,transparent 48px,rgba(74,92,58,0.04) 48px,rgba(74,92,58,0.04) 49px); }
+  .hero-left { position:relative; }
+  .hero-content { position:relative; max-width:720px; padding-top:2rem; }
+  .hero-eyebrow { display:flex; align-items:center; gap:1rem; font-size:0.75rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--olive); margin-bottom:2rem; font-weight:600; }
+  .hero-eyebrow::before { content:''; width:32px; height:1px; background:var(--olive); }
+  .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(3.5rem,6.5vw,6.5rem); font-weight:300; line-height:1.0; color:var(--charcoal); margin-bottom:2rem; }
+  .hero-title em { font-style:italic; color:var(--olive); }
+  .hero-desc { max-width:500px; color:var(--soil); font-size:1.05rem; line-height:1.8; margin-bottom:3rem; font-weight:400; }
+  .hero-actions { display:flex; gap:1.5rem; align-items:center; }
+  .btn-primary { display:inline-block; padding:0.7rem 2rem; background:var(--olive); color:#fff; text-decoration:none; font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; transition:background 0.2s; }
+  .btn-primary:hover { background:var(--olive-mid); }
+  .btn-ghost { display:inline-block; padding:0.7rem 2rem; border:1px solid var(--border-heavy); color:var(--dark); text-decoration:none; font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; transition:border-color 0.2s,color 0.2s; }
+  .btn-ghost:hover { border-color:var(--olive); color:var(--olive); }
+  .hero-right { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding-bottom:2rem; gap:1.5rem; }
+  .hero-logo { width:260px; height:auto; opacity:0.65; display:block; }
+  .hero-partners { width:100%; padding:1.5rem; border:1px solid var(--border); background:rgba(250,249,245,0.7); backdrop-filter:blur(4px); }
+  .hero-partners-label { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--bark); margin-bottom:1rem; font-weight:600; }
+  .partners-row { display:flex; gap:1.5rem; align-items:center; }
+  .partner-name { font-family:'Rajdhani',sans-serif; font-size:0.85rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--charcoal); }
+  .partner-sub { font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--bark); font-weight:500; }
+  .partner-divider { width:1px; height:28px; background:var(--border-heavy); }
 
   /* BAND */
-  .band {
-    background: var(--charcoal); color: var(--cream);
-    padding: 1.25rem 3rem;
-    display: flex; align-items: center; gap: 3rem; overflow: hidden;
-  }
-  .band-item { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
-  .band-dot { width: 4px; height: 4px; background: var(--olive-light); }
-  .band-text {
-    font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
-    font-weight: 500; color: var(--slate-light); white-space: nowrap;
-  }
-  .band-text strong { color: var(--tan-light); }
+  .band { background:var(--charcoal); color:var(--cream); padding:1.25rem 3rem; display:flex; align-items:center; gap:3rem; overflow:hidden; }
+  .band-item { display:flex; align-items:center; gap:0.75rem; flex-shrink:0; }
+  .band-dot { width:4px; height:4px; background:var(--olive-light); }
+  .band-text { font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; color:var(--slate-light); white-space:nowrap; }
+  .band-text strong { color:var(--tan-light); }
 
-  /* SECTION BASE */
-  section { padding: 6rem 3rem; }
-  .section-label {
-    display: flex; align-items: center; gap: 0.75rem;
-    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--olive); margin-bottom: 1rem; font-weight: 700;
-  }
-  .section-label::after { content: ''; flex: 0 0 24px; height: 1px; background: var(--olive); }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 300; line-height: 1.15;
-    color: var(--charcoal); margin-bottom: 1.5rem;
-  }
-
-  /* COLLECTION */
-  #collection { background: var(--off-white); }
-  .collection-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem;
-  }
-  .collection-header-left { max-width: 480px; }
-  .collection-header p { color: var(--soil); font-size: 1rem; font-weight: 400; }
-
-  .filter-bar {
-    display: flex; flex-wrap: wrap; gap: 0.5rem;
-    align-items: center; justify-content: center;
-    flex: 2;
-  }
-  .filter-btn {
-    padding: 0.6rem 1.5rem;
-    border: 1px solid var(--border-heavy);
-    background: transparent;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 0.85rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--bark); cursor: pointer;
-    transition: background 0.2s, color 0.2s, border-color 0.2s;
-  }
-  .filter-btn:hover { border-color: var(--olive); color: var(--olive); }
-  .filter-btn.active { background: var(--olive); color: #fff; border-color: var(--olive); }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    background: transparent;
-    border: none;
-  }
-  .card {
-    background: var(--off-white); cursor: pointer;
-    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
-    overflow: hidden; display: flex; flex-direction: column;
-    text-decoration: none; color: inherit;
-    border: 1px solid var(--border);
-  }
-  .card:hover { background: var(--cream); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(30,30,30,0.08); }
-  .card-img {
-    width: 100%; aspect-ratio: 4/3;
-    background: var(--cream); position: relative; overflow: hidden;
-  }
-  .card-img-placeholder {
-    width: 100%; height: 100%;
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 8px;
-  }
-  .placeholder-icon { opacity: 0.25; }
-  .card-img-label {
-    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--bark); font-weight: 600;
-  }
-  .card-body { padding: 1.5rem; flex: 1; }
-  .card-tag {
-    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--olive); margin-bottom: 0.6rem; font-weight: 700;
-  }
-  .card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem; font-weight: 400;
-    color: var(--charcoal); margin-bottom: 0.75rem; line-height: 1.15;
-  }
-  .card-desc {
-    font-size: 0.92rem; color: var(--soil); line-height: 1.75; font-weight: 400;
-  }
-  .card-footer {
-    padding: 1rem 1.5rem;
-    border-top: 1px solid var(--border);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .card-meta {
-    font-size: 0.7rem; letter-spacing: 0.08em;
-    color: var(--bark); font-weight: 600; text-transform: uppercase;
-  }
-  .card-arrow {
-    width: 28px; height: 28px;
-    border: 1px solid var(--border-heavy);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.8rem; color: var(--olive);
-    transition: background 0.2s, color 0.2s;
-  }
-  .card:hover .card-arrow { background: var(--olive); color: #fff; }
-
-  /* TYPOLOGY KEY */
-  .typology-key {
-    margin-top: 3rem;
-    display: flex; flex-wrap: wrap; gap: 1rem;
-    padding: 1.5rem; border: 1px solid var(--border);
-    background: var(--cream);
-  }
-  .key-label {
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--bark); font-weight: 700; width: 100%; margin-bottom: 0.25rem;
-  }
-  .key-item {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--soil); font-weight: 500;
-  }
-  .key-dot { width: 8px; height: 8px; background: var(--olive-mid); }
-  .key-dot.slate { background: var(--slate); }
-  .key-dot.tan { background: var(--tan); }
-
-  /* DIVIDER */
-  .divider { height: 1px; background: var(--border); margin: 0 3rem; }
+  /* SECTION */
+  section { padding:6rem 3rem; }
+  .section-label { display:flex; align-items:center; gap:0.75rem; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--olive); margin-bottom:1rem; font-weight:700; }
+  .section-label::after { content:''; flex:0 0 24px; height:1px; background:var(--olive); }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,3rem); font-weight:300; line-height:1.15; color:var(--charcoal); margin-bottom:1.5rem; }
 
   /* ABOUT */
-  #about { background: var(--cream); }
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 380px;
-    gap: 5rem; align-items: start;
-  }
-  .about-left p {
-    color: var(--soil); font-size: 1rem;
-    line-height: 1.9; margin-bottom: 1.5rem; font-weight: 400;
-  }
-  .about-quote {
-    margin: 2.5rem 0;
-    padding: 1.5rem 1.5rem 1.5rem 2rem;
-    border-left: 3px solid var(--olive);
-    background: rgba(74,92,58,0.05);
-  }
-  .about-quote p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem; font-style: italic;
-    color: var(--olive); line-height: 1.6; margin: 0 !important; font-weight: 500;
-  }
-  .about-right { padding-top: 0.5rem; }
-  .partners-panel { border: 1px solid var(--border-heavy); overflow: hidden; margin-bottom: 2rem; }
-  .partners-panel-header {
-    background: var(--charcoal); padding: 0.75rem 1.25rem;
-    font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--slate-light); font-weight: 600;
-  }
-  .partner-entry { padding: 1.25rem; border-bottom: 1px solid var(--border); }
-  .partner-entry:last-child { border-bottom: none; }
-  .partner-entry-name {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--charcoal); margin-bottom: 0.25rem;
-  }
-  .partner-entry-role {
-    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--olive); font-weight: 700; margin-bottom: 0.5rem;
-  }
-  .partner-entry-desc {
-    font-size: 0.88rem; color: var(--soil); line-height: 1.6; font-weight: 400;
-  }
-  .about-stat-row {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1px; background: var(--border); border: 1px solid var(--border);
-  }
-  .about-stat { background: var(--off-white); padding: 1.25rem; }
-  .about-stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem; font-weight: 300; color: var(--olive); line-height: 1;
-  }
-  .about-stat-label {
-    font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--bark); margin-top: 0.4rem; font-weight: 600; line-height: 1.4;
-  }
+  #about { background:var(--cream); }
+  .about-grid { display:grid; grid-template-columns:1fr 380px; gap:5rem; align-items:start; }
+  .about-left p { color:var(--soil); font-size:1rem; line-height:1.9; margin-bottom:1.5rem; font-weight:400; }
+  .about-quote { margin:2.5rem 0; padding:1.5rem 1.5rem 1.5rem 2rem; border-left:3px solid var(--olive); background:rgba(74,92,58,0.05); }
+  .about-quote p { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-style:italic; color:var(--olive); line-height:1.6; margin:0 !important; font-weight:500; }
+  .about-right { padding-top:0.5rem; }
+  .partners-panel { border:1px solid var(--border-heavy); overflow:hidden; margin-bottom:2rem; }
+  .partners-panel-header { background:var(--charcoal); padding:0.75rem 1.25rem; font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--slate-light); font-weight:600; }
+  .partner-entry { padding:1.25rem; border-bottom:1px solid var(--border); text-decoration:none; display:block; transition:background 0.2s; }
+  .partner-entry:last-child { border-bottom:none; }
+  .partner-entry-name { font-family:'Rajdhani',sans-serif; font-size:1rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--charcoal); margin-bottom:0.25rem; }
+  .partner-entry-role { font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--olive); font-weight:700; margin-bottom:0.5rem; }
+  .partner-entry-desc { font-size:0.88rem; color:var(--soil); line-height:1.6; font-weight:400; }
+  .about-stat-row { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); }
+  .about-stat { background:var(--off-white); padding:1.25rem; }
+  .about-stat-num { font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:300; color:var(--olive); line-height:1; }
+  .about-stat-label { font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--bark); margin-top:0.4rem; font-weight:600; line-height:1.4; }
+
+  /* COLLECTION */
+  #collection { background:var(--off-white); }
+  .collection-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem; flex-wrap:wrap; gap:1.5rem; }
+  .collection-header-left { max-width:480px; }
+  .collection-header p { color:var(--soil); font-size:1rem; font-weight:400; }
+  .filter-bar { display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; justify-content:center; flex:2; }
+  .filter-btn { padding:0.6rem 1.5rem; border:1px solid var(--border-heavy); background:transparent; font-family:'Rajdhani',sans-serif; font-size:0.85rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--bark); cursor:pointer; transition:background 0.2s,color 0.2s,border-color 0.2s; }
+  .filter-btn:hover { border-color:var(--olive); color:var(--olive); }
+  .filter-btn.active { background:var(--olive); color:#fff; border-color:var(--olive); }
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; background:transparent; border:none; }
+  .card { background:var(--off-white); cursor:pointer; transition:background 0.25s,transform 0.25s,box-shadow 0.25s; overflow:hidden; display:flex; flex-direction:column; text-decoration:none; color:inherit; border:1px solid var(--border); }
+  .card:hover { background:var(--cream); transform:translateY(-3px); box-shadow:0 8px 24px rgba(30,30,30,0.08); }
+  .card-img { width:100%; aspect-ratio:4/3; background:var(--cream); position:relative; overflow:hidden; }
+  .card-img img { width:100%; height:100%; object-fit:cover; display:block; }
+  .card-img-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; }
+  .placeholder-icon { opacity:0.25; }
+  .card-img-label { font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--bark); font-weight:600; }
+  .card-body { padding:1.5rem; flex:1; }
+  .card-tag { font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--olive); margin-bottom:0.6rem; font-weight:700; }
+  .card-title { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:400; color:var(--charcoal); margin-bottom:0.75rem; line-height:1.15; }
+  .card-desc { font-size:0.92rem; color:var(--soil); line-height:1.75; font-weight:400; }
+  .card-footer { padding:1rem 1.5rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+  .card-meta { font-size:0.7rem; letter-spacing:0.08em; color:var(--bark); font-weight:600; text-transform:uppercase; }
+  .card-arrow { width:28px; height:28px; border:1px solid var(--border-heavy); display:flex; align-items:center; justify-content:center; font-size:0.8rem; color:var(--olive); transition:background 0.2s,color 0.2s; }
+  .card:hover .card-arrow { background:var(--olive); color:#fff; }
+  .typology-key { margin-top:3rem; display:flex; flex-wrap:wrap; gap:1rem; padding:1.5rem; border:1px solid var(--border); background:var(--cream); }
+  .key-label { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--bark); font-weight:700; width:100%; margin-bottom:0.25rem; }
+  .key-item { display:flex; align-items:center; gap:6px; font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--soil); font-weight:500; }
+  .key-dot { width:8px; height:8px; background:var(--olive-mid); }
+  .key-dot.slate { background:var(--slate); }
+  .key-dot.tan { background:var(--tan); }
+
+  /* DIVIDER */
+  .divider { height:1px; background:var(--border); margin:0 3rem; }
 
   /* FOOTER */
-  footer { background: var(--charcoal); color: var(--cream); padding: 3rem; }
-  .footer-top {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1);
-    flex-wrap: wrap; gap: 2rem;
-  }
-  .footer-logo-group { display: flex; flex-direction: column; gap: 0.5rem; }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem; font-weight: 300; letter-spacing: 0.06em; color: var(--cream);
-  }
-  .footer-tagline {
-    font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--slate-light); font-weight: 500;
-  }
-  .footer-partners { display: flex; gap: 2rem; align-items: center; }
-  .footer-partner {
-    font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
-    font-weight: 600; color: rgba(255,255,255,0.5);
-  }
-  .footer-bottom {
-    padding-top: 1.5rem;
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .footer-note { font-size: 0.65rem; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; }
+  footer { background:var(--charcoal); color:var(--cream); padding:3rem; }
+  .footer-top { display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:2rem; border-bottom:1px solid rgba(255,255,255,0.1); flex-wrap:wrap; gap:2rem; }
+  .footer-logo-group { display:flex; flex-direction:column; gap:0.5rem; }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:300; letter-spacing:0.06em; color:var(--cream); }
+  .footer-tagline { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--slate-light); font-weight:500; }
+  .footer-partners { display:flex; gap:2rem; align-items:center; }
+  .footer-partner { font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; font-weight:600; color:rgba(255,255,255,0.5); text-decoration:none; }
+  .footer-bottom { padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+  .footer-note { font-size:0.65rem; color:rgba(255,255,255,0.3); letter-spacing:0.06em; }
 
   /* RESPONSIVE */
-  @media (max-width: 1100px) {
-    .grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-partners { display: none; }
-    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; }
-    .hero-right { display: none; }
-    section { padding: 4rem 1.5rem; }
-    .divider { margin: 0 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .band { padding: 1rem 1.5rem; gap: 2rem; }
-    footer { padding: 2rem 1.5rem; }
-    .collection-header { flex-direction: column; }
-    .grid { grid-template-columns: 1fr; }
+  @media(max-width:1100px) { .grid { grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:900px) {
+    nav { padding:1rem 1.5rem; }
+    .nav-partners { display:none; }
+    .hero { grid-template-columns:1fr; padding:7rem 1.5rem 4rem; }
+    .hero-right { display:none; }
+    section { padding:4rem 1.5rem; }
+    .divider { margin:0 1.5rem; }
+    .about-grid { grid-template-columns:1fr; gap:3rem; }
+    .band { padding:1rem 1.5rem; gap:2rem; }
+    footer { padding:2rem 1.5rem; }
+    .collection-header { flex-direction:column; }
+    .grid { grid-template-columns:1fr; }
   }
 </style>
 </head>
@@ -421,29 +152,29 @@
 <!-- NAV -->
 <nav>
   <a class="nav-brand" href="#hero">
-    <img class="nav-mark" src="logotitle.png" alt="The Understory Collection logo"/>
+    <img class="nav-mark" src="logotitle.png" alt="The Understory Collection"/>
   </a>
   <div class="nav-links">
     <a href="#about">Philosophy</a>
     <a href="#collection">Collection</a>
     <div class="nav-partners">
-      <a href="https://www.saltusventures.com" target="_blank" class="partner-tag" style="text-decoration:none;">Saltus Ventures</a>
+      <a href="https://www.saltusventures.com" target="_blank" class="partner-tag">Saltus Ventures</a>
       <span class="partner-tag" style="color:var(--border-heavy)">·</span>
-      <a href="https://www.knightonarchitecture.com/" target="_blank" class="partner-tag" style="text-decoration:none;">Knighton A+P</a>
+      <a href="https://www.knightonarchitecture.com/" target="_blank" class="partner-tag">Knighton A+P</a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <!-- Community image — full width top with fade -->
-  <div style="grid-column: 1 / -1; margin-bottom: -3rem; position:relative; z-index:0;">
-    <div style="width:100%; overflow:hidden; border: 1px solid var(--border);">
+  <!-- Community video — full width top with fade -->
+  <div style="grid-column:1/-1; margin-bottom:-3rem; position:relative; z-index:0;">
+    <div style="width:100%; overflow:hidden; border:1px solid var(--border);">
       <video autoplay muted loop playsinline style="width:100%; display:block; object-fit:cover; aspect-ratio:16/7;">
         <source src="community-video.mp4" type="video/mp4"/>
       </video>
     </div>
-    <div style="position:absolute; bottom:0; left:0; right:0; height:33%; background:linear-gradient(to bottom, transparent, #F4F1EA);"></div>
+    <div style="position:absolute; bottom:0; left:0; right:0; height:33%; background:linear-gradient(to bottom,transparent,#F4F1EA);"></div>
   </div>
   <div class="hero-left">
     <div class="hero-content">
@@ -489,43 +220,29 @@
       <div class="section-label">Philosophy</div>
       <h2 class="section-title">The Middle Ground</h2>
       <p>The understory of a forest is where the most diverse, adaptive life takes hold — sheltered by the canopy above, rooted in the ground below. This collection borrows that metaphor for housing: the missing middle as a quiet, resilient layer of the city.</p>
-      <div class="about-quote">
-        <p>"These typologies are not monuments. They are neighbors."</p>
-      </div>
+      <div class="about-quote"><p>"These typologies are not monuments. They are neighbors."</p></div>
       <p>Each design asks how a building can increase density without announcing itself — how it can offer more people a place in an established neighborhood without displacing what makes that neighborhood worth living in.</p>
       <p>The Understory Collection is an ongoing study — a living document of typologies, ideas, and built experiments in the space between the house and the tower. Developed in collaboration between Saltus Ventures and Knighton Architecture + Planning.</p>
     </div>
     <div class="about-right">
       <div class="partners-panel">
         <div class="partners-panel-header">Created &amp; Promoted By</div>
-        <a href="https://www.saltusventures.com" target="_blank" class="partner-entry" style="text-decoration:none; display:block; transition: background 0.2s;" onmouseover="this.style.background='rgba(74,92,58,0.05)'" onmouseout="this.style.background='transparent'">
+        <a href="https://www.saltusventures.com" target="_blank" class="partner-entry" onmouseover="this.style.background='rgba(74,92,58,0.05)'" onmouseout="this.style.background='transparent'">
           <div class="partner-entry-name">Saltus Ventures</div>
           <div class="partner-entry-role">Development Partner</div>
           <div class="partner-entry-desc">Bringing middle housing typologies to market — identifying sites, securing approvals, and delivering housing that fits the neighborhood.</div>
         </a>
-        <a href="https://www.knightonarchitecture.com/" target="_blank" class="partner-entry" style="text-decoration:none; display:block; transition: background 0.2s;" onmouseover="this.style.background='rgba(74,92,58,0.05)'" onmouseout="this.style.background='transparent'">
+        <a href="https://www.knightonarchitecture.com/" target="_blank" class="partner-entry" onmouseover="this.style.background='rgba(74,92,58,0.05)'" onmouseout="this.style.background='transparent'">
           <div class="partner-entry-name">Knighton</div>
           <div class="partner-entry-role">Architecture + Planning</div>
           <div class="partner-entry-desc">Designing every typology in the collection with precision, context, and a deep commitment to human-scale urbanism.</div>
         </a>
       </div>
       <div class="about-stat-row">
-        <div class="about-stat">
-          <div class="about-stat-num">12</div>
-          <div class="about-stat-label">Typologies in collection</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">2–8</div>
-          <div class="about-stat-label">Units per project</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">2</div>
-          <div class="about-stat-label">Partner firms</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">∞</div>
-          <div class="about-stat-label">Neighbourhoods it can serve</div>
-        </div>
+        <div class="about-stat"><div class="about-stat-num">15</div><div class="about-stat-label">Typologies in collection</div></div>
+        <div class="about-stat"><div class="about-stat-num">2–8</div><div class="about-stat-label">Units per project</div></div>
+        <div class="about-stat"><div class="about-stat-num">2</div><div class="about-stat-label">Partner firms</div></div>
+        <div class="about-stat"><div class="about-stat-num">∞</div><div class="about-stat-label">Neighborhoods it can serve</div></div>
       </div>
     </div>
   </div>
@@ -555,136 +272,94 @@
 
   <div class="grid">
 
-    <!-- 1 The Nook -->
     <a class="card" href="the-nook.html" data-type="studio">
       <div class="card-img"><img src="nook-main.png" alt="The Nook" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <div class="card-body">
-        <p class="card-tag">Studio Cottage</p>
-        <h3 class="card-title">The Nook</h3>
-        <p class="card-desc">A compact studio cottage that tucks a full living experience into the footprint of a large garage — a starter home, a downsizer's landing spot, or gentle infill on an oversized lot.</p>
-      </div>
+      <div class="card-body"><p class="card-tag">Studio Cottage</p><h3 class="card-title">The Nook</h3><p class="card-desc">A compact studio cottage that tucks a full living experience into the footprint of a large garage — a starter home, a downsizer's landing spot, or gentle infill on an oversized lot.</p></div>
       <div class="card-footer"><span class="card-meta">1 unit · 547 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 2 The Hollow -->
     <a class="card" href="the-hollow.html" data-type="1bed">
       <div class="card-img"><img src="hollow-main.png" alt="The Hollow" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <div class="card-body">
-        <p class="card-tag">1 Bed Cottage</p>
-        <h3 class="card-title">The Hollow</h3>
-        <p class="card-desc">A one-bedroom cottage that stretches upward rather than outward, fitting a complete two-story home onto a 14-foot-wide footprint — a genuine private dwelling on a sliver of land.</p>
-      </div>
+      <div class="card-body"><p class="card-tag">1 Bed Cottage</p><h3 class="card-title">The Hollow</h3><p class="card-desc">A one-bedroom cottage that stretches upward rather than outward, fitting a complete two-story home onto a 14-foot-wide footprint — a genuine private dwelling on a sliver of land.</p></div>
       <div class="card-footer"><span class="card-meta">1 unit · 773 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 3 The Burrow -->
     <a class="card" href="the-burrow.html" data-type="studio">
       <div class="card-img"><img src="burrow-main.png" alt="The Burrow" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <div class="card-body">
-        <p class="card-tag">Studio Cottage</p>
-        <h3 class="card-title">The Burrow</h3>
-        <p class="card-desc">The simplest expression of a home — a single-story studio cottage that sits lightly on the ground with no stairs, no complexity, and no wasted space. The most affordable unit in the collection.</p>
-      </div>
+      <div class="card-body"><p class="card-tag">Studio Cottage</p><h3 class="card-title">The Burrow</h3><p class="card-desc">The simplest expression of a home — a single-story studio cottage that sits lightly on the ground with no stairs, no complexity, and no wasted space. The most affordable unit in the collection.</p></div>
       <div class="card-footer"><span class="card-meta">1 unit · 420 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 4 The Holt -->
     <a class="card" href="the-holt.html" data-type="2bed">
       <div class="card-img"><img src="holt-main.png" alt="The Holt" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <div class="card-body">
-        <p class="card-tag">2 Bed Cottage</p>
-        <h3 class="card-title">The Holt</h3>
-        <p class="card-desc">A two-bedroom cottage that stretches its narrow 14-foot width across two full stories, achieving the room count of a family home without demanding more than a lane-width of lot frontage.</p>
-      </div>
+      <div class="card-body"><p class="card-tag">2 Bed Cottage</p><h3 class="card-title">The Holt</h3><p class="card-desc">A two-bedroom cottage that stretches its narrow 14-foot width across two full stories, achieving the room count of a family home without demanding more than a lane-width of lot frontage.</p></div>
       <div class="card-footer"><span class="card-meta">1 unit · 888 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 5 The Fern -->
     <a class="card" href="the-fern.html" data-type="3bed">
       <div class="card-img"><img src="fern-main.png" alt="The Fern" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <div class="card-body">
-        <p class="card-tag">3 Bed Cottage</p>
-        <h3 class="card-title">The Fern</h3>
-        <p class="card-desc">A three-bedroom cottage that steps up to a wider footprint, offering the space and layout of a conventional family home at a scale that still fits comfortably on a modest lot. Two stories over a 22x30 base give each bedroom breathing room while keeping the massing neighborly from the street.</p>
-      </div>
+      <div class="card-body"><p class="card-tag">3 Bed Cottage</p><h3 class="card-title">The Fern</h3><p class="card-desc">A three-bedroom cottage that steps up to a wider footprint, offering the space and layout of a conventional family home at a scale that still fits comfortably on a modest lot.</p></div>
       <div class="card-footer"><span class="card-meta">1 unit · 1,231 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 6 The Clover -->
     <a class="card" href="the-clover.html" data-type="3bed">
       <div class="card-img"><img src="clover-main.png" alt="The Clover" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <div class="card-body">
-        <p class="card-tag">3 Bed Cottage</p>
-        <h3 class="card-title">The Clover</h3>
-        <p class="card-desc">A three-bedroom cottage that stretches deeper into its lot to carve out generous living spaces — quiet single-family living that sits politely alongside smaller neighbours.</p>
-      </div>
+      <div class="card-body"><p class="card-tag">3 Bed Cottage</p><h3 class="card-title">The Clover</h3><p class="card-desc">A three-bedroom cottage that stretches deeper into its lot to carve out generous living spaces — quiet single-family living that sits politely alongside smaller neighbors.</p></div>
       <div class="card-footer"><span class="card-meta">1 unit · 1,365 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 7 The Sage -->
     <a class="card" href="the-sage.html" data-type="3bed">
       <div class="card-img"><img src="sage-main.png" alt="The Sage" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <div class="card-body">
-        <p class="card-tag">3 Bed Cottage</p>
-        <h3 class="card-title">The Sage</h3>
-        <p class="card-desc">The largest single-family cottage in the collection, offering three bedrooms across nearly 1,900 square feet of living space spread over two stories — generous enough for a growing family.</p>
-      </div>
+      <div class="card-body"><p class="card-tag">3 Bed Cottage</p><h3 class="card-title">The Sage</h3><p class="card-desc">The largest single-family cottage in the collection, offering three bedrooms across nearly 1,900 square feet of living space spread over two stories — generous enough for a growing family.</p></div>
       <div class="card-footer"><span class="card-meta">1 unit · 1,892 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 8 The Sedge ADU -->
     <a class="card" href="the-sedge-adu.html" data-type="adu">
       <div class="card-img"><img src="sedge-adu-main.png" alt="The Sedge ADU" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <div class="card-body">
-        <p class="card-tag">2 Bed + ADU Cottage</p>
-        <h3 class="card-title">The Sedge ADU</h3>
-        <p class="card-desc">A two-bedroom cottage paired with an accessory dwelling unit on a single lot — two independent homes that share land and infrastructure while maintaining complete privacy from one another.</p>
-      </div>
+      <div class="card-body"><p class="card-tag">2 Bed + ADU Cottage</p><h3 class="card-title">The Sedge ADU</h3><p class="card-desc">A two-bedroom cottage paired with an accessory dwelling unit on a single lot — two independent homes that share land and infrastructure while maintaining complete privacy from one another.</p></div>
       <div class="card-footer"><span class="card-meta">2 units · 885 + 1,007 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 9 The Sedge -->
     <a class="card" href="the-sedge.html" data-type="2bed">
       <div class="card-img"><img src="sedge-main.png" alt="The Sedge" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <div class="card-body">
-        <p class="card-tag">2 Bed Cottage</p>
-        <h3 class="card-title">The Sedge</h3>
-        <p class="card-desc">The standalone sibling of the Sedge + ADU — a two-bedroom cottage without the secondary suite, ready for a generous garden, future infill, or simply the luxury of unbuilt space.</p>
-      </div>
+      <div class="card-body"><p class="card-tag">2 Bed Cottage</p><h3 class="card-title">The Sedge</h3><p class="card-desc">The standalone sibling of the Sedge + ADU — a two-bedroom cottage without the secondary suite, ready for a generous garden, future infill, or simply the luxury of unbuilt space.</p></div>
       <div class="card-footer"><span class="card-meta">1 unit · 885 sf</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 10 The Hedge -->
     <a class="card" href="the-hedge.html" data-type="duplex">
       <div class="card-img"><img src="hedge-main.png" alt="The Hedge" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <div class="card-body">
-        <p class="card-tag">2 Bed Duplex</p>
-        <h3 class="card-title">The Hedge</h3>
-        <p class="card-desc">A side-by-side duplex that mirrors the massing of a detached house while doubling the homes on one lot — each two-bedroom unit reads as its own complete home from the street.</p>
-      </div>
+      <div class="card-body"><p class="card-tag">2 Bed Duplex</p><h3 class="card-title">The Hedge</h3><p class="card-desc">A side-by-side duplex that mirrors the massing of a single-family detached house while doubling the homes on one lot — each two-bedroom unit reads as its own complete home from the street.</p></div>
       <div class="card-footer"><span class="card-meta">2 units · 885 sf each</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 11 The Twinberry -->
     <a class="card" href="the-twinberry.html" data-type="duplex">
       <div class="card-img"><img src="twinberry-main.png" alt="The Twinberry" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <div class="card-body">
-        <p class="card-tag">2 Bed Duplex</p>
-        <h3 class="card-title">The Twinberry</h3>
-        <p class="card-desc">A duplex that pairs two homes on a wider lot, giving each unit more generous proportions — separate entrance, separate outdoor space, achieving density without compromise.</p>
-      </div>
+      <div class="card-body"><p class="card-tag">2 Bed Duplex</p><h3 class="card-title">The Twinberry</h3><p class="card-desc">A duplex that pairs two homes on a wider lot, giving each unit more generous proportions — separate entrance, separate outdoor space, achieving density without compromise.</p></div>
       <div class="card-footer"><span class="card-meta">2 units · 1,776 sf total</span><div class="card-arrow">→</div></div>
     </a>
 
-    <!-- 12 The Bramble -->
     <a class="card" href="the-bramble.html" data-type="5bed">
       <div class="card-img"><img src="bramble-main.png" alt="The Bramble" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <div class="card-body">
-        <p class="card-tag">5 Bed Cottage</p>
-        <h3 class="card-title">The Bramble</h3>
-        <p class="card-desc">A five-bedroom cottage for households that need real room — a large or multigenerational family, a co-living arrangement, or anyone who has simply outgrown the standard three-bedroom box.</p>
-      </div>
+      <div class="card-body"><p class="card-tag">5 Bed Cottage</p><h3 class="card-title">The Bramble</h3><p class="card-desc">A five-bedroom cottage for households that need real room — a large or multigenerational family, a co-living arrangement, or anyone who has simply outgrown the standard three-bedroom box.</p></div>
       <div class="card-footer"><span class="card-meta">1 unit · 1,702 sf</span><div class="card-arrow">→</div></div>
+    </a>
+
+    <a class="card" href="the-maple.html" data-type="3bed">
+      <div class="card-img"><img src="maple-main.png" alt="The Maple" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
+      <div class="card-body"><p class="card-tag">3 Bed + Garage</p><h3 class="card-title">The Maple</h3><p class="card-desc">A three-bedroom cottage with an attached garage — room for the family, the car, and everything in between, all in a two-story home that sits comfortably on a standard lot.</p></div>
+      <div class="card-footer"><span class="card-meta">1 unit · 1,675 sf</span><div class="card-arrow">→</div></div>
+    </a>
+
+    <a class="card" href="the-alder.html" data-type="2bed">
+      <div class="card-img"><img src="alder-main.png" alt="The Alder" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
+      <div class="card-body"><p class="card-tag">2 Bed Cottage</p><h3 class="card-title">The Alder</h3><p class="card-desc">A two-bedroom cottage that makes the most of an 18-foot-wide footprint across two stories — a complete and comfortable home that fits neatly into a side yard or infill lot.</p></div>
+      <div class="card-footer"><span class="card-meta">1 unit · 1,250 sf</span><div class="card-arrow">→</div></div>
+    </a>
+
+    <a class="card" href="the-briar.html" data-type="1bed">
+      <div class="card-img"><img src="briar-main.png" alt="The Briar" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
+      <div class="card-body"><p class="card-tag">1 Bed Cottage</p><h3 class="card-title">The Briar</h3><p class="card-desc">A compact single-story one-bedroom cottage — everything you need, nothing you don't. At 900 square feet it is an ideal fit for a single occupant, a couple, or anyone ready to trade square footage for simplicity.</p></div>
+      <div class="card-footer"><span class="card-meta">1 unit · 900 sf</span><div class="card-arrow">→</div></div>
     </a>
 
   </div>
@@ -702,12 +377,12 @@
   <div class="footer-top">
     <div class="footer-logo-group">
       <div class="footer-logo">The Understory Collection</div>
-      <div class="footer-tagline">Missing middle housing typologies</div>
+      <div class="footer-tagline">Middle housing typologies</div>
     </div>
     <div class="footer-partners">
-      <a href="https://www.saltusventures.com" target="_blank" class="footer-partner" style="text-decoration:none;">Saltus Ventures</a>
-      <span style="color:rgba(255,255,255,0.15); font-size:1rem;">×</span>
-      <a href="https://www.knightonarchitecture.com/" target="_blank" class="footer-partner" style="text-decoration:none;">Knighton Architecture + Planning</a>
+      <a href="https://www.saltusventures.com" target="_blank" class="footer-partner">Saltus Ventures</a>
+      <span style="color:rgba(255,255,255,0.15);font-size:1rem;">×</span>
+      <a href="https://www.knightonarchitecture.com/" target="_blank" class="footer-partner">Knighton Architecture + Planning</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -722,10 +397,10 @@ function filterCards(type) {
   document.querySelectorAll('.card').forEach(card => {
     card.style.display = (type === 'all' || card.dataset.type === type) ? 'flex' : 'none';
   });
-  const grid = document.querySelector('.grid');
   const visible = document.querySelectorAll('.card[style*="flex"]').length;
-  grid.style.gridTemplateColumns = visible === 1 ? '1fr' : 'repeat(3, 1fr)';
+  document.querySelector('.grid').style.gridTemplateColumns = visible === 1 ? '1fr' : '';
 }
 </script>
+
 </body>
 </html>
