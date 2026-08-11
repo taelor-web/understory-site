@@ -56,7 +56,27 @@
   .footer-bottom { padding-top:1.5rem; }
   .footer-note { font-size:0.65rem; color:rgba(255,255,255,0.3); letter-spacing:0.06em; }
   @media(max-width:900px) { nav{padding:1rem 1.5rem;} .nav-partners{display:none;} .breadcrumb{padding:1rem 1.5rem;} .project-hero{grid-template-columns:1fr;} .project-info{padding:2.5rem 1.5rem; border-right:none; border-bottom:1px solid var(--border);} .floorplan-section{padding:3rem 1.5rem;} footer{padding:2rem 1.5rem;} }
-</style>
+  /* MEDIA GALLERY */
+  .media-gallery { position:relative; }
+  .media-gallery-track { display:flex; gap:1.5rem; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; -ms-overflow-style:none; }
+  .media-gallery-track::-webkit-scrollbar { display:none; }
+  .media-gallery-track:focus-visible { outline:2px solid var(--olive); outline-offset:4px; }
+  .media-gallery-item { flex:0 0 100%; min-width:0; scroll-snap-align:start; }
+  .floorplan-card.is-photo img { max-width:100%; padding:0; }
+  .media-gallery-nav { display:flex; align-items:center; justify-content:center; gap:1.25rem; margin-top:1.5rem; }
+  .mg-btn { font-family:'Oswald',sans-serif; width:38px; height:38px; border:1px solid var(--border-heavy); background:transparent; color:var(--olive); font-size:0.95rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s,color 0.2s,border-color 0.2s; }
+  .mg-btn:hover { background:var(--olive); color:var(--off-white); border-color:var(--olive); }
+  .mg-btn:focus-visible { outline:2px solid var(--olive); outline-offset:3px; }
+  .mg-count { font-family:'Oswald',sans-serif; font-weight:500; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--bark); font-variant-numeric:tabular-nums; }
+  .mg-dots { display:flex; gap:0.5rem; align-items:center; }
+  .mg-dot { width:8px; height:8px; padding:0; border:none; background:var(--border-heavy); cursor:pointer; transition:background 0.2s; }
+  .mg-dot:hover { background:var(--olive-mid); }
+  .mg-dot.is-active { background:var(--olive); }
+  .mg-dot:focus-visible { outline:2px solid var(--olive); outline-offset:3px; }
+  .media-gallery.is-single .media-gallery-nav { display:none; }
+  .floorplan-pending { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.45rem; padding:5.5rem 2rem; background:var(--cream); }
+  .floorplan-pending-title { font-family:'Oswald',sans-serif; font-weight:300; font-size:1.7rem; color:var(--charcoal); }
+  .floorplan-pending-sub { font-family:'Oswald',sans-serif; font-weight:500; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--bark); }</style>
 </head>
 <body>
 <nav>
@@ -98,16 +118,17 @@
   </div>
   <div class="floorplan-section">
     <div class="floorplan-header">Floor Plans &amp; Images</div>
-    <!-- MEDIA GALLERY: currently single image, replace this section with carousel when ready -->
     <div class="media-gallery" id="twinberry-gallery">
-      <div class="media-gallery-track">
+      <div class="media-gallery-track" tabindex="0" role="group" aria-label="The Twinberry images">
         <div class="media-gallery-item">
           <div class="floorplan-card">
-            <div class="floorplan-card-header">Floor Plan — All Levels</div>
-            <img src="twinberry-plan.png" alt="The Twinberry Floor Plan"/>
+            <div class="floorplan-card-header">Floor Plan</div>
+            <div class="floorplan-pending">
+              <span class="floorplan-pending-title">Floor Plan</span>
+              <span class="floorplan-pending-sub">Coming Soon</span>
+            </div>
           </div>
         </div>
-        <!-- Add more .media-gallery-item divs here for additional images -->
       </div>
     </div>
   </div>
@@ -123,5 +144,60 @@
   </div>
   <div class="footer-bottom"><div class="footer-note">The Understory Collection — an ongoing study in missing middle housing</div></div>
 </footer>
-</body>
+<script>
+document.querySelectorAll('.media-gallery').forEach(function (gal) {
+  var track = gal.querySelector('.media-gallery-track');
+  var items = Array.prototype.slice.call(gal.querySelectorAll('.media-gallery-item'));
+  var nav   = gal.querySelector('.media-gallery-nav');
+  if (items.length < 2 || !nav) { gal.classList.add('is-single'); return; }
+
+  var dots  = nav.querySelector('.mg-dots');
+  var count = nav.querySelector('.mg-count');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  items.forEach(function (_, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'mg-dot';
+    b.setAttribute('aria-label', 'Show image ' + (i + 1) + ' of ' + items.length);
+    b.addEventListener('click', function () { go(i); });
+    dots.appendChild(b);
+  });
+
+  // Absolute offsets, not relative scrollBy: with scroll-snap-type mandatory a
+  // relative scroll gets re-snapped to where it started and the track never moves.
+  function offsetOf(i) { return items[i].offsetLeft - items[0].offsetLeft; }
+  function current() {
+    var sl = track.scrollLeft, best = 0, bd = Infinity;
+    for (var i = 0; i < items.length; i++) {
+      var d = Math.abs(offsetOf(i) - sl);
+      if (d < bd) { bd = d; best = i; }
+    }
+    return best;
+  }
+  function go(i) {
+    i = Math.max(0, Math.min(items.length - 1, i));
+    track.scrollTo({ left: offsetOf(i), behavior: reduce ? 'auto' : 'smooth' });
+  }
+  function sync() {
+    var i = current();
+    dots.querySelectorAll('.mg-dot').forEach(function (d, j) {
+      d.classList.toggle('is-active', j === i);
+      d.setAttribute('aria-current', j === i ? 'true' : 'false');
+    });
+    if (count) { count.textContent = (i + 1) + ' / ' + items.length; }
+  }
+
+  nav.querySelector('[data-mg-prev]').addEventListener('click', function () { go(current() - 1); });
+  nav.querySelector('[data-mg-next]').addEventListener('click', function () { go(current() + 1); });
+  track.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(current() + 1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); go(current() - 1); }
+  });
+  var t;
+  track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(sync, 90); });
+  window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(sync, 150); });
+  sync();
+});
+</script></body>
 </html>
