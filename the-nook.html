@@ -46,7 +46,7 @@
   .floorplan-header::after { content:''; flex:0 0 24px; height:1px; background:var(--olive); }
   .floorplan-card { border:1px solid var(--border); background:var(--cream); overflow:hidden; }
   .floorplan-card-header { font-family:'Oswald',sans-serif; padding:0.75rem 1.25rem; border-bottom:1px solid var(--border); font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--bark); font-weight:500; background:var(--off-white); }
-  .floorplan-card img { width:100%; max-width:720px; display:block; object-fit:contain; background:var(--cream); margin:0 auto; padding:2rem; }
+  .floorplan-card img { display:block; width:100%; max-width:720px; height:560px; object-fit:contain; background:var(--cream); margin:0 auto; padding:2rem; }
   .floorplan-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
   footer { background:var(--charcoal); color:var(--cream); padding:3rem; }
   .footer-top { display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:2rem; border-bottom:1px solid rgba(255,255,255,0.1); flex-wrap:wrap; gap:2rem; }
@@ -63,7 +63,7 @@
   .media-gallery-track::-webkit-scrollbar { display:none; }
   .media-gallery-track:focus-visible { outline:2px solid var(--olive); outline-offset:4px; }
   .media-gallery-item { flex:0 0 100%; min-width:0; scroll-snap-align:start; }
-  .floorplan-card.is-photo img { max-width:100%; padding:0; }
+  .floorplan-card.is-photo img { max-width:100%; padding:0.75rem; }
   .media-gallery-nav { display:flex; align-items:center; justify-content:center; gap:1.25rem; margin-top:1.5rem; }
   .mg-btn { font-family:'Oswald',sans-serif; width:38px; height:38px; border:1px solid var(--border-heavy); background:transparent; color:var(--olive); font-size:0.95rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s,color 0.2s,border-color 0.2s; }
   .mg-btn:hover { background:var(--olive); color:var(--off-white); border-color:var(--olive); }
@@ -77,7 +77,11 @@
   .media-gallery.is-single .media-gallery-nav { display:none; }
   .floorplan-pending { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.45rem; padding:5.5rem 2rem; background:var(--cream); }
   .floorplan-pending-title { font-family:'Oswald',sans-serif; font-weight:300; font-size:1.7rem; color:var(--charcoal); }
-  .floorplan-pending-sub { font-family:'Oswald',sans-serif; font-weight:500; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--bark); }</style>
+  .floorplan-pending-sub { font-family:'Oswald',sans-serif; font-weight:500; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--bark); }  @media(max-width:900px) {
+    .floorplan-card img { height:340px; padding:1rem; }
+    .floorplan-card.is-photo img { padding:0.5rem; }
+    .media-gallery-track { gap:1rem; }
+  }</style>
 </head>
 <body>
 <nav>
